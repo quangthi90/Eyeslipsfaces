@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 06, 2014 at 07:03 AM
+-- Generation Time: Sep 13, 2014 at 04:01 AM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -217,7 +217,7 @@ CREATE TABLE IF NOT EXISTS `banner` (
   `name` varchar(64) NOT NULL,
   `status` tinyint(1) NOT NULL,
   PRIMARY KEY (`banner_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `banner`
@@ -226,7 +226,8 @@ CREATE TABLE IF NOT EXISTS `banner` (
 INSERT INTO `banner` (`banner_id`, `name`, `status`) VALUES
 (6, 'HP Products', 1),
 (7, 'Samsung Tab', 1),
-(8, 'Manufacturers', 1);
+(8, 'Manufacturers', 1),
+(9, 'Home-Slideshow', 1);
 
 -- --------------------------------------------------------
 
@@ -240,7 +241,7 @@ CREATE TABLE IF NOT EXISTS `banner_image` (
   `link` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   PRIMARY KEY (`banner_image_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=78 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=81 ;
 
 --
 -- Dumping data for table `banner_image`
@@ -254,7 +255,10 @@ INSERT INTO `banner_image` (`banner_image_id`, `banner_id`, `link`, `image`) VAL
 (74, 8, 'index.php?route=product/manufacturer/info&amp;manufacturer_id=9', 'data/demo/canon_logo.jpg'),
 (71, 8, 'index.php?route=product/manufacturer/info&amp;manufacturer_id=10', 'data/demo/sony_logo.jpg'),
 (72, 8, 'index.php?route=product/manufacturer/info&amp;manufacturer_id=6', 'data/demo/palm_logo.jpg'),
-(76, 8, 'index.php?route=product/manufacturer/info&amp;manufacturer_id=7', 'data/demo/hp_logo.jpg');
+(76, 8, 'index.php?route=product/manufacturer/info&amp;manufacturer_id=7', 'data/demo/hp_logo.jpg'),
+(78, 9, 'http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS', 'data/slide01-1180x500.jpg'),
+(79, 9, 'http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS', 'data/slide02-1180x500.jpg'),
+(80, 9, 'http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS', 'data/slide03-1180x500.jpg');
 
 -- --------------------------------------------------------
 
@@ -282,7 +286,10 @@ INSERT INTO `banner_image_description` (`banner_image_id`, `language_id`, `banne
 (73, 1, 8, 'Apple'),
 (72, 1, 8, 'Palm'),
 (71, 1, 8, 'Sony'),
-(76, 1, 8, 'Hewlett-Packard');
+(76, 1, 8, 'Hewlett-Packard'),
+(78, 1, 9, 'slide1'),
+(79, 1, 9, 'slide2'),
+(80, 1, 9, 'slide3');
 
 -- --------------------------------------------------------
 
@@ -311,7 +318,7 @@ INSERT INTO `category` (`category_id`, `image`, `parent_id`, `top`, `column`, `s
 (25, '', 0, 1, 1, 3, 1, '2009-01-31 01:04:25', '2011-05-30 12:14:55'),
 (27, '', 20, 0, 0, 2, 1, '2009-01-31 01:55:34', '2010-08-22 06:32:15'),
 (20, 'data/demo/compaq_presario.jpg', 0, 1, 1, 1, 1, '2009-01-05 21:49:43', '2011-07-16 02:14:42'),
-(24, '', 0, 1, 1, 5, 1, '2009-01-20 02:36:26', '2011-05-30 12:15:18'),
+(24, 'data/demo/palm_treo_pro_1.jpg', 0, 1, 1, 5, 1, '2009-01-20 02:36:26', '2014-09-13 08:54:35'),
 (18, 'data/demo/hp_2.jpg', 0, 1, 0, 2, 1, '2009-01-05 21:49:15', '2011-05-30 12:13:55'),
 (17, '', 0, 1, 1, 4, 1, '2009-01-03 21:08:57', '2011-05-30 12:15:11'),
 (28, '', 25, 0, 0, 1, 1, '2009-02-02 13:11:12', '2010-08-22 06:32:46'),
@@ -320,7 +327,7 @@ INSERT INTO `category` (`category_id`, `image`, `parent_id`, `top`, `column`, `s
 (30, '', 25, 0, 0, 1, 1, '2009-02-02 13:11:59', '2010-08-22 06:33:00'),
 (31, '', 25, 0, 0, 1, 1, '2009-02-03 14:17:24', '2010-08-22 06:33:06'),
 (32, '', 25, 0, 0, 1, 1, '2009-02-03 14:17:34', '2010-08-22 06:33:12'),
-(33, '', 0, 1, 1, 6, 1, '2009-02-03 14:17:55', '2011-05-30 12:15:25'),
+(33, 'data/demo/canon_eos_5d_1.jpg', 0, 1, 1, 6, 1, '2009-02-03 14:17:55', '2014-09-13 08:51:53'),
 (34, 'data/demo/ipod_touch_4.jpg', 0, 1, 4, 7, 1, '2009-02-03 14:18:11', '2011-05-30 12:15:31'),
 (35, '', 28, 0, 0, 0, 1, '2010-09-17 10:06:48', '2010-09-18 14:02:42'),
 (36, '', 28, 0, 0, 0, 1, '2010-09-17 10:07:13', '2010-09-18 14:02:55'),
@@ -949,9 +956,9 @@ CREATE TABLE IF NOT EXISTS `currency` (
 --
 
 INSERT INTO `currency` (`currency_id`, `title`, `code`, `symbol_left`, `symbol_right`, `decimal_place`, `value`, `status`, `date_modified`) VALUES
-(1, 'Pound Sterling', 'GBP', '£', '', '2', 0.61250001, 1, '2014-09-06 07:03:35'),
-(2, 'US Dollar', 'USD', '$', '', '2', 1.00000000, 1, '2014-09-06 07:03:35'),
-(3, 'Euro', 'EUR', '', '€', '2', 0.77209997, 1, '2014-09-06 07:03:35');
+(1, 'Pound Sterling', 'GBP', '£', '', '2', 0.61580002, 1, '2014-09-12 17:54:32'),
+(2, 'US Dollar', 'USD', '$', '', '2', 1.00000000, 1, '2014-09-13 03:20:37'),
+(3, 'Euro', 'EUR', '', '€', '2', 0.77179998, 1, '2014-09-12 17:54:32');
 
 -- --------------------------------------------------------
 
@@ -1240,7 +1247,7 @@ CREATE TABLE IF NOT EXISTS `extension` (
   `type` varchar(32) NOT NULL,
   `code` varchar(32) NOT NULL,
   PRIMARY KEY (`extension_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=428 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=436 ;
 
 --
 -- Dumping data for table `extension`
@@ -1266,7 +1273,15 @@ INSERT INTO `extension` (`extension_id`, `type`, `code`) VALUES
 (398, 'total', 'voucher'),
 (407, 'payment', 'free_checkout'),
 (427, 'module', 'featured'),
-(419, 'module', 'slideshow');
+(419, 'module', 'slideshow'),
+(428, 'module', 'rgen_banners'),
+(429, 'module', 'rgen_contentblocks'),
+(430, 'module', 'rgen_custom'),
+(431, 'module', 'rgen_customproducts'),
+(432, 'module', 'rgen_gallery'),
+(433, 'module', 'rgen_megamenu'),
+(434, 'module', 'rgen_revoslider'),
+(435, 'module', 'rgen_theme');
 
 -- --------------------------------------------------------
 
@@ -2127,14 +2142,14 @@ INSERT INTO `product` (`product_id`, `model`, `sku`, `upc`, `ean`, `jan`, `isbn`
 (36, 'Product 9', '', '', '', '', '', '', '', 994, 6, 'data/demo/ipod_nano_1.jpg', 8, 0, 100.0000, 100, 9, '2009-02-03', 5.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 2, 1, 1, 0, 1, '2009-02-03 18:09:19', '2011-09-30 01:07:12', 0),
 (40, 'product 11', '', '', '', '', '', '', '', 970, 5, 'data/demo/iphone_1.jpg', 8, 1, 101.0000, 0, 9, '2009-02-03', 10.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 0, 1, '2009-02-03 21:07:12', '2011-09-30 01:06:53', 0),
 (41, 'Product 14', '', '', '', '', '', '', '', 977, 5, 'data/demo/imac_1.jpg', 8, 1, 100.0000, 0, 9, '2009-02-03', 5.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 0, 1, '2009-02-03 21:07:26', '2011-09-30 01:06:44', 0),
-(42, 'Product 15', '', '', '', '', '', '', '', 990, 5, 'data/demo/apple_cinema_30.jpg', 8, 1, 100.0000, 400, 9, '2009-02-04', 12.50000000, 1, 1.00000000, 2.00000000, 3.00000000, 1, 1, 2, 0, 1, '2009-02-03 21:07:37', '2011-09-30 00:46:19', 0),
+(42, 'Product 15', '', '', '', '', '', '', '', 990, 5, 'data/demo/apple_cinema_30.jpg', 8, 1, 100.0000, 400, 9, '2009-02-04', 12.50000000, 1, 1.00000000, 2.00000000, 3.00000000, 1, 1, 2, 0, 1, '2009-02-03 21:07:37', '2011-09-30 00:46:19', 4),
 (43, 'Product 16', '', '', '', '', '', '', '', 929, 5, 'data/demo/macbook_1.jpg', 8, 0, 500.0000, 0, 9, '2009-02-03', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 2, 1, 1, 0, 1, '2009-02-03 21:07:49', '2011-09-30 01:05:46', 0),
 (44, 'Product 17', '', '', '', '', '', '', '', 1000, 5, 'data/demo/macbook_air_1.jpg', 8, 1, 1000.0000, 0, 9, '2009-02-03', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 2, 1, 1, 0, 1, '2009-02-03 21:08:00', '2011-09-30 01:05:53', 0),
 (45, 'Product 18', '', '', '', '', '', '', '', 998, 5, 'data/demo/macbook_pro_1.jpg', 8, 1, 2000.0000, 0, 100, '2009-02-03', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 2, 1, 1, 0, 1, '2009-02-03 21:08:17', '2011-09-15 22:22:01', 0),
 (46, 'Product 19', '', '', '', '', '', '', '', 1000, 5, 'data/demo/sony_vaio_1.jpg', 10, 1, 1000.0000, 0, 9, '2009-02-03', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 2, 1, 1, 0, 1, '2009-02-03 21:08:29', '2011-09-30 01:06:39', 0),
 (47, 'Product 21', '', '', '', '', '', '', '', 1000, 5, 'data/demo/hp_1.jpg', 7, 1, 100.0000, 400, 9, '2009-02-03', 1.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 0, 1, 0, 1, '2009-02-03 21:08:40', '2011-09-30 01:05:28', 0),
 (48, 'product 20', 'test 1', '', '', '', '', '', 'test 2', 995, 5, 'data/demo/ipod_classic_1.jpg', 8, 1, 100.0000, 0, 9, '2009-02-08', 1.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 2, 1, 1, 0, 1, '2009-02-08 17:21:51', '2011-09-30 01:07:06', 0),
-(49, 'SAM1', '', '', '', '', '', '', '', 0, 8, 'data/demo/samsung_tab_1.jpg', 0, 1, 199.9900, 0, 9, '2011-04-25', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, '2011-04-26 08:57:34', '2011-09-30 01:06:23', 0);
+(49, 'SAM1', '', '', '', '', '', '', '', 0, 8, 'data/demo/samsung_tab_1.jpg', 0, 1, 199.9900, 0, 9, '2011-04-25', 0.00000000, 1, 0.00000000, 0.00000000, 0.00000000, 1, 1, 1, 1, 1, '2011-04-26 08:57:34', '2011-09-30 01:06:23', 2);
 
 -- --------------------------------------------------------
 
@@ -2797,6 +2812,320 @@ CREATE TABLE IF NOT EXISTS `review` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `rgen_banners`
+--
+
+CREATE TABLE IF NOT EXISTS `rgen_banners` (
+  `rgen_id` int(11) NOT NULL AUTO_INCREMENT,
+  `store_id` int(11) NOT NULL DEFAULT '0',
+  `group` varchar(32) NOT NULL,
+  `mod_id` varchar(64) NOT NULL,
+  `value` mediumtext NOT NULL,
+  `serialized` tinyint(1) NOT NULL,
+  PRIMARY KEY (`rgen_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rgen_banners_description`
+--
+
+CREATE TABLE IF NOT EXISTS `rgen_banners_description` (
+  `rgen_id` int(11) NOT NULL AUTO_INCREMENT,
+  `store_id` int(11) NOT NULL DEFAULT '0',
+  `language_id` int(11) NOT NULL DEFAULT '1',
+  `group` varchar(32) NOT NULL,
+  `mod_id` varchar(32) NOT NULL,
+  `banner_id` varchar(32) NOT NULL,
+  `section_title` mediumtext NOT NULL,
+  `title` mediumtext NOT NULL,
+  `image` mediumtext NOT NULL,
+  `description` mediumtext NOT NULL,
+  PRIMARY KEY (`rgen_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rgen_contentblocks`
+--
+
+CREATE TABLE IF NOT EXISTS `rgen_contentblocks` (
+  `rgen_id` int(11) NOT NULL AUTO_INCREMENT,
+  `store_id` int(11) NOT NULL DEFAULT '0',
+  `group` varchar(32) NOT NULL,
+  `mod_id` varchar(64) NOT NULL,
+  `value` mediumtext NOT NULL,
+  `serialized` tinyint(1) NOT NULL,
+  PRIMARY KEY (`rgen_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rgen_contentblocks_description`
+--
+
+CREATE TABLE IF NOT EXISTS `rgen_contentblocks_description` (
+  `rgen_id` int(11) NOT NULL AUTO_INCREMENT,
+  `store_id` int(11) NOT NULL DEFAULT '0',
+  `language_id` int(11) NOT NULL DEFAULT '1',
+  `group` varchar(32) NOT NULL,
+  `mod_id` varchar(32) NOT NULL,
+  `moddata_id` varchar(32) NOT NULL,
+  `section_title` mediumtext NOT NULL,
+  `title` mediumtext NOT NULL,
+  `image` mediumtext NOT NULL,
+  `description` mediumtext NOT NULL,
+  `description1` mediumtext NOT NULL,
+  `short_description` mediumtext NOT NULL,
+  PRIMARY KEY (`rgen_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rgen_custom`
+--
+
+CREATE TABLE IF NOT EXISTS `rgen_custom` (
+  `rgen_id` int(11) NOT NULL AUTO_INCREMENT,
+  `store_id` int(11) NOT NULL DEFAULT '0',
+  `group` varchar(32) NOT NULL,
+  `key` varchar(64) NOT NULL,
+  `value` mediumtext NOT NULL,
+  `serialized` tinyint(1) NOT NULL,
+  PRIMARY KEY (`rgen_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+
+--
+-- Dumping data for table `rgen_custom`
+--
+
+INSERT INTO `rgen_custom` (`rgen_id`, `store_id`, `group`, `key`, `value`, `serialized`) VALUES
+(1, 0, 'rgen_custom', 'rgen_custom_module1', 'a:21:{s:7:"modName";s:30:"Home - Banners below slideshow";s:6:"mod_id";s:19:"rgen_custom_module1";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";s:9:"layout_id";s:1:"1";s:8:"position";s:11:"content_top";s:9:"custWidth";s:0:"";s:7:"custTop";s:0:"";s:9:"custColor";s:0:"";s:7:"custImg";s:0:"";s:5:"style";s:5:"cust3";s:5:"class";s:0:"";s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";}', 1),
+(2, 0, 'rgen_custom', 'rgen_custom_module2', 'a:21:{s:7:"modName";s:21:"Column - Custom block";s:6:"mod_id";s:19:"rgen_custom_module2";s:6:"status";s:1:"0";s:10:"sort_order";s:1:"2";s:9:"layout_id";s:1:"1";s:8:"position";s:11:"column_left";s:9:"custWidth";s:0:"";s:7:"custTop";s:0:"";s:9:"custColor";s:0:"";s:7:"custImg";s:0:"";s:5:"style";s:5:"cust3";s:5:"class";s:0:"";s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";}', 1),
+(3, 0, 'rgen_custom', 'rgen_custom_module3', 'a:21:{s:7:"modName";s:14:"Footer - Cards";s:6:"mod_id";s:19:"rgen_custom_module3";s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";s:9:"layout_id";s:5:"99999";s:8:"position";s:12:"footer_cards";s:9:"custWidth";s:0:"";s:7:"custTop";s:0:"";s:9:"custColor";s:0:"";s:7:"custImg";s:0:"";s:5:"style";s:5:"cust3";s:5:"class";s:0:"";s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";}', 1),
+(4, 0, 'rgen_custom', 'rgen_custom_module4', 'a:23:{s:7:"modName";s:39:"Product page - Content below main image";s:6:"mod_id";s:19:"rgen_custom_module4";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"0";s:9:"layout_id";s:1:"2";s:10:"prd_status";s:4:"selp";s:3:"prd";a:1:{i:0;s:2:"42";}s:8:"position";s:12:"pd_below_img";s:9:"custWidth";s:0:"";s:7:"custTop";s:0:"";s:9:"custColor";s:0:"";s:7:"custImg";s:0:"";s:5:"style";s:5:"cust3";s:5:"class";s:0:"";s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";}', 1),
+(5, 0, 'rgen_custom', 'rgen_custom_module5', 'a:22:{s:7:"modName";s:29:"Product page - Column banners";s:6:"mod_id";s:19:"rgen_custom_module5";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"0";s:9:"layout_id";s:1:"2";s:10:"prd_status";s:4:"allp";s:8:"position";s:11:"column_left";s:9:"custWidth";s:0:"";s:7:"custTop";s:0:"";s:9:"custColor";s:0:"";s:7:"custImg";s:0:"";s:5:"style";s:5:"cust3";s:5:"class";s:0:"";s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";}', 1),
+(6, 0, 'rgen_custom', 'rgen_custom_module6', 'a:22:{s:7:"modName";s:31:"Product page - Column slideshow";s:6:"mod_id";s:19:"rgen_custom_module6";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"2";s:9:"layout_id";s:1:"2";s:10:"prd_status";s:4:"allp";s:8:"position";s:11:"column_left";s:9:"custWidth";s:0:"";s:7:"custTop";s:0:"";s:9:"custColor";s:0:"";s:7:"custImg";s:0:"";s:5:"style";s:5:"cust3";s:5:"class";s:0:"";s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";}', 1),
+(7, 0, 'rgen_custom', 'rgen_custom_module7', 'a:23:{s:7:"modName";s:45:"Product page - Extra tab on selected products";s:6:"mod_id";s:19:"rgen_custom_module7";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"0";s:9:"layout_id";s:1:"2";s:10:"prd_status";s:4:"selp";s:3:"prd";a:2:{i:0;s:2:"42";i:1;s:2:"30";}s:8:"position";s:5:"pd_tb";s:9:"custWidth";s:0:"";s:7:"custTop";s:0:"";s:9:"custColor";s:0:"";s:7:"custImg";s:0:"";s:5:"style";s:5:"cust2";s:5:"class";s:0:"";s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";}', 1),
+(8, 0, 'rgen_custom', 'rgen_custom_module8', 'a:22:{s:7:"modName";s:40:"Product page - Extra tab on all products";s:6:"mod_id";s:19:"rgen_custom_module8";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";s:9:"layout_id";s:1:"2";s:10:"prd_status";s:4:"allp";s:8:"position";s:5:"pd_tb";s:9:"custWidth";s:0:"";s:7:"custTop";s:0:"";s:9:"custColor";s:0:"";s:7:"custImg";s:0:"";s:5:"style";s:5:"cust2";s:5:"class";s:0:"";s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";}', 1),
+(9, 0, 'rgen_custom', 'rgen_custom_module9', 'a:23:{s:7:"modName";s:10:"Promo code";s:6:"mod_id";s:19:"rgen_custom_module9";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"0";s:9:"layout_id";s:1:"2";s:10:"prd_status";s:4:"selp";s:3:"prd";a:2:{i:0;s:2:"42";i:1;s:2:"30";}s:8:"position";s:11:"content_top";s:9:"custWidth";s:0:"";s:7:"custTop";s:0:"";s:9:"custColor";s:0:"";s:7:"custImg";s:0:"";s:5:"style";s:5:"cust2";s:5:"class";s:0:"";s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";}', 1),
+(10, 0, 'rgen_custom', 'rgen_custom_module10', 'a:23:{s:7:"modName";s:23:"Category page - banners";s:6:"mod_id";s:20:"rgen_custom_module10";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"0";s:9:"layout_id";s:1:"3";s:10:"cat_status";s:4:"selc";s:8:"category";a:1:{i:0;s:2:"20";}s:8:"position";s:11:"content_top";s:9:"custWidth";s:0:"";s:7:"custTop";s:0:"";s:9:"custColor";s:0:"";s:7:"custImg";s:0:"";s:5:"style";s:5:"cust2";s:5:"class";s:0:"";s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";}', 1),
+(11, 0, 'rgen_custom', 'rgen_custom_module11', 'a:22:{s:7:"modName";s:16:"Column - Banners";s:6:"mod_id";s:20:"rgen_custom_module11";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"2";s:9:"layout_id";s:1:"3";s:10:"cat_status";s:4:"allc";s:8:"position";s:11:"column_left";s:9:"custWidth";s:0:"";s:7:"custTop";s:0:"";s:9:"custColor";s:0:"";s:7:"custImg";s:0:"";s:5:"style";s:5:"cust3";s:5:"class";s:0:"";s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";}', 1),
+(12, 0, 'rgen_custom', 'rgen_custom_module12', 'a:21:{s:7:"modName";s:17:"Sticky - Facebook";s:6:"mod_id";s:20:"rgen_custom_module12";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"0";s:9:"layout_id";s:5:"99999";s:8:"position";s:7:"s_right";s:9:"custWidth";s:3:"300";s:7:"custTop";s:3:"200";s:9:"custColor";s:16:"rgb(67, 96, 156)";s:7:"custImg";s:17:"data/facebook.png";s:5:"style";s:5:"cust2";s:5:"class";s:0:"";s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";}', 1),
+(13, 0, 'rgen_custom', 'rgen_custom_module13', 'a:21:{s:7:"modName";s:16:"Sticky - Twitter";s:6:"mod_id";s:20:"rgen_custom_module13";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";s:9:"layout_id";s:5:"99999";s:8:"position";s:7:"s_right";s:9:"custWidth";s:3:"300";s:7:"custTop";s:3:"200";s:9:"custColor";s:17:"rgb(77, 169, 202)";s:7:"custImg";s:16:"data/twitter.png";s:5:"style";s:5:"cust3";s:5:"class";s:0:"";s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";}', 1),
+(14, 0, 'rgen_custom', 'rgen_custom_module14', 'a:21:{s:7:"modName";s:20:"Home - Small banners";s:6:"mod_id";s:20:"rgen_custom_module14";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"4";s:9:"layout_id";s:1:"1";s:8:"position";s:11:"content_top";s:9:"custWidth";s:0:"";s:7:"custTop";s:0:"";s:9:"custColor";s:0:"";s:7:"custImg";s:0:"";s:5:"style";s:5:"cust3";s:5:"class";s:0:"";s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";}', 1),
+(15, 0, 'rgen_custom', 'rgen_custom_module15', 'a:21:{s:7:"modName";s:21:"Home - Custom content";s:6:"mod_id";s:20:"rgen_custom_module15";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"2";s:9:"layout_id";s:1:"1";s:8:"position";s:11:"content_top";s:9:"custWidth";s:0:"";s:7:"custTop";s:0:"";s:9:"custColor";s:0:"";s:7:"custImg";s:0:"";s:5:"style";s:5:"cust3";s:5:"class";s:0:"";s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";}', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rgen_customprd`
+--
+
+CREATE TABLE IF NOT EXISTS `rgen_customprd` (
+  `rgen_id` int(11) NOT NULL AUTO_INCREMENT,
+  `store_id` int(11) NOT NULL DEFAULT '0',
+  `group` varchar(32) NOT NULL,
+  `key` varchar(64) NOT NULL,
+  `value` mediumtext NOT NULL,
+  `serialized` tinyint(1) NOT NULL,
+  PRIMARY KEY (`rgen_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+
+--
+-- Dumping data for table `rgen_customprd`
+--
+
+INSERT INTO `rgen_customprd` (`rgen_id`, `store_id`, `group`, `key`, `value`, `serialized`) VALUES
+(1, 0, 'rgen_customprd', 'rgen_customprd1', 'a:3:{s:12:"section_name";s:24:"Home - Category scroller";s:6:"mod_id";s:15:"rgen_customprd1";s:12:"section_data";a:1:{i:0;a:22:{s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";s:5:"title";a:1:{i:1;s:16:"Shop by category";}s:9:"css_class";s:0:"";s:8:"prdTypes";s:13:"selcatSection";s:8:"prdStyle";s:4:"grid";s:11:"prdboxStyle";s:4:"prd1";s:8:"prdlimit";s:1:"8";s:13:"category_name";s:0:"";s:11:"category_id";s:0:"";s:10:"brand_name";s:0:"";s:8:"brand_id";s:0:"";s:17:"category_sec_name";s:0:"";s:15:"category_sec_id";s:0:"";s:18:"category_sec_limit";s:0:"";s:14:"selcat_section";a:14:{i:0;s:2:"26";i:1;s:2:"27";i:2;s:2:"46";i:3;s:2:"45";i:4;s:2:"20";i:5;s:2:"18";i:6;s:2:"25";i:7;s:2:"28";i:8;s:2:"29";i:9;s:2:"30";i:10;s:2:"31";i:11;s:2:"32";i:12;s:2:"17";i:13;s:2:"24";}s:17:"selcat_prd_status";s:1:"n";s:16:"selcat_prd_style";s:1:"1";s:16:"selcat_prd_limit";s:0:"";s:19:"selbrand_prd_status";s:1:"n";s:18:"selbrand_prd_style";s:1:"1";s:18:"selbrand_prd_limit";s:0:"";}}}', 1),
+(2, 0, 'rgen_customprd', 'rgen_customprd2', 'a:3:{s:12:"section_name";s:19:"Home - Tab products";s:6:"mod_id";s:15:"rgen_customprd2";s:12:"section_data";a:3:{i:0;a:21:{s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";s:5:"title";a:1:{i:1;s:14:"SPECIAL OFFERS";}s:9:"css_class";s:0:"";s:8:"prdTypes";s:7:"special";s:8:"prdStyle";s:6:"scroll";s:11:"prdboxStyle";s:4:"prd1";s:8:"prdlimit";s:1:"8";s:13:"category_name";s:0:"";s:11:"category_id";s:0:"";s:10:"brand_name";s:0:"";s:8:"brand_id";s:0:"";s:17:"category_sec_name";s:0:"";s:15:"category_sec_id";s:0:"";s:18:"category_sec_limit";s:0:"";s:17:"selcat_prd_status";s:1:"n";s:16:"selcat_prd_style";s:1:"1";s:16:"selcat_prd_limit";s:0:"";s:19:"selbrand_prd_status";s:1:"n";s:18:"selbrand_prd_style";s:1:"1";s:18:"selbrand_prd_limit";s:0:"";}i:1;a:21:{s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";s:5:"title";a:1:{i:1;s:11:"NEW ARRIVAL";}s:9:"css_class";s:0:"";s:8:"prdTypes";s:6:"latest";s:8:"prdStyle";s:6:"scroll";s:11:"prdboxStyle";s:4:"prd4";s:8:"prdlimit";s:1:"8";s:13:"category_name";s:0:"";s:11:"category_id";s:0:"";s:10:"brand_name";s:0:"";s:8:"brand_id";s:0:"";s:17:"category_sec_name";s:0:"";s:15:"category_sec_id";s:0:"";s:18:"category_sec_limit";s:0:"";s:17:"selcat_prd_status";s:1:"n";s:16:"selcat_prd_style";s:1:"1";s:16:"selcat_prd_limit";s:0:"";s:19:"selbrand_prd_status";s:1:"n";s:18:"selbrand_prd_style";s:1:"1";s:18:"selbrand_prd_limit";s:0:"";}i:2;a:22:{s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";s:5:"title";a:1:{i:1;s:17:"SELECTED PRODUCTS";}s:9:"css_class";s:0:"";s:8:"prdTypes";s:7:"custPrd";s:8:"prdStyle";s:6:"scroll";s:11:"prdboxStyle";s:4:"prd3";s:8:"prdlimit";s:1:"8";s:13:"category_name";s:0:"";s:11:"category_id";s:0:"";s:8:"products";a:10:{i:0;s:2:"42";i:1;s:2:"41";i:2;s:2:"40";i:3;s:2:"48";i:4;s:2:"36";i:5;s:2:"34";i:6;s:2:"32";i:7;s:2:"43";i:8;s:2:"44";i:9;s:2:"45";}s:10:"brand_name";s:0:"";s:8:"brand_id";s:0:"";s:17:"category_sec_name";s:0:"";s:15:"category_sec_id";s:0:"";s:18:"category_sec_limit";s:0:"";s:17:"selcat_prd_status";s:1:"n";s:16:"selcat_prd_style";s:1:"1";s:16:"selcat_prd_limit";s:0:"";s:19:"selbrand_prd_status";s:1:"n";s:18:"selbrand_prd_style";s:1:"1";s:18:"selbrand_prd_limit";s:0:"";}}}', 1),
+(3, 0, 'rgen_customprd', 'rgen_customprd3', 'a:3:{s:12:"section_name";s:24:"Home - Category products";s:6:"mod_id";s:15:"rgen_customprd3";s:12:"section_data";a:1:{i:0;a:21:{s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";s:5:"title";a:1:{i:1;s:8:"Desktops";}s:9:"css_class";s:0:"";s:8:"prdTypes";s:6:"catPrd";s:8:"prdStyle";s:6:"scroll";s:11:"prdboxStyle";s:4:"prd3";s:8:"prdlimit";s:1:"8";s:13:"category_name";s:8:"Desktops";s:11:"category_id";s:0:"";s:10:"brand_name";s:0:"";s:8:"brand_id";s:0:"";s:17:"category_sec_name";s:0:"";s:15:"category_sec_id";s:0:"";s:18:"category_sec_limit";s:0:"";s:17:"selcat_prd_status";s:1:"n";s:16:"selcat_prd_style";s:1:"1";s:16:"selcat_prd_limit";s:0:"";s:19:"selbrand_prd_status";s:1:"n";s:18:"selbrand_prd_style";s:1:"1";s:18:"selbrand_prd_limit";s:0:"";}}}', 1),
+(4, 0, 'rgen_customprd', 'rgen_customprd4', 'a:3:{s:12:"section_name";s:23:"Column - Brand products";s:6:"mod_id";s:15:"rgen_customprd4";s:12:"section_data";a:1:{i:0;a:22:{s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";s:5:"title";a:1:{i:1;s:0:"";}s:9:"css_class";s:0:"";s:8:"prdTypes";s:12:"brandSection";s:8:"prdStyle";s:4:"grid";s:11:"prdboxStyle";s:4:"prd1";s:8:"prdlimit";s:1:"8";s:13:"category_name";s:0:"";s:11:"category_id";s:0:"";s:10:"brand_name";s:0:"";s:8:"brand_id";s:0:"";s:17:"category_sec_name";s:0:"";s:15:"category_sec_id";s:0:"";s:18:"category_sec_limit";s:0:"";s:17:"selcat_prd_status";s:1:"n";s:16:"selcat_prd_style";s:1:"1";s:16:"selcat_prd_limit";s:0:"";s:16:"selbrand_section";a:1:{i:0;s:1:"8";}s:19:"selbrand_prd_status";s:1:"y";s:18:"selbrand_prd_style";s:1:"2";s:18:"selbrand_prd_limit";s:1:"8";}}}', 1),
+(5, 0, 'rgen_customprd', 'rgen_customprd5', 'a:3:{s:12:"section_name";s:26:"Column - Category products";s:6:"mod_id";s:15:"rgen_customprd5";s:12:"section_data";a:1:{i:0;a:21:{s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";s:5:"title";a:1:{i:1;s:23:"Laptops &amp; Notebooks";}s:9:"css_class";s:0:"";s:8:"prdTypes";s:6:"catPrd";s:8:"prdStyle";s:4:"grid";s:11:"prdboxStyle";s:4:"prd1";s:8:"prdlimit";s:1:"5";s:13:"category_name";s:23:"Laptops &amp; Notebooks";s:11:"category_id";s:0:"";s:10:"brand_name";s:0:"";s:8:"brand_id";s:0:"";s:17:"category_sec_name";s:0:"";s:15:"category_sec_id";s:0:"";s:18:"category_sec_limit";s:0:"";s:17:"selcat_prd_status";s:1:"n";s:16:"selcat_prd_style";s:1:"1";s:16:"selcat_prd_limit";s:0:"";s:19:"selbrand_prd_status";s:1:"n";s:18:"selbrand_prd_style";s:1:"1";s:18:"selbrand_prd_limit";s:0:"";}}}', 1),
+(6, 0, 'rgen_customprd', 'rgen_customprd6', 'a:3:{s:12:"section_name";s:15:"Column - Brands";s:6:"mod_id";s:15:"rgen_customprd6";s:12:"section_data";a:1:{i:0;a:22:{s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";s:5:"title";a:1:{i:1;s:10:"Top brands";}s:9:"css_class";s:0:"";s:8:"prdTypes";s:12:"brandSection";s:8:"prdStyle";s:6:"scroll";s:11:"prdboxStyle";s:4:"prd1";s:8:"prdlimit";s:1:"8";s:13:"category_name";s:0:"";s:11:"category_id";s:0:"";s:10:"brand_name";s:0:"";s:8:"brand_id";s:0:"";s:17:"category_sec_name";s:0:"";s:15:"category_sec_id";s:0:"";s:18:"category_sec_limit";s:0:"";s:17:"selcat_prd_status";s:1:"n";s:16:"selcat_prd_style";s:1:"1";s:16:"selcat_prd_limit";s:0:"";s:16:"selbrand_section";a:6:{i:0;s:1:"8";i:1;s:1:"5";i:2;s:1:"9";i:3;s:1:"7";i:4;s:1:"6";i:5;s:2:"10";}s:19:"selbrand_prd_status";s:1:"n";s:18:"selbrand_prd_style";s:1:"1";s:18:"selbrand_prd_limit";s:0:"";}}}', 1),
+(7, 0, 'rgen_customprd', 'rgen_customprd7', 'a:3:{s:12:"section_name";s:17:"Column - Brands 1";s:6:"mod_id";s:15:"rgen_customprd7";s:12:"section_data";a:1:{i:0;a:22:{s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";s:5:"title";a:1:{i:1;s:14:"Shop by brands";}s:9:"css_class";s:0:"";s:8:"prdTypes";s:12:"brandSection";s:8:"prdStyle";s:4:"grid";s:11:"prdboxStyle";s:4:"prd1";s:8:"prdlimit";s:1:"8";s:13:"category_name";s:0:"";s:11:"category_id";s:0:"";s:10:"brand_name";s:0:"";s:8:"brand_id";s:0:"";s:17:"category_sec_name";s:0:"";s:15:"category_sec_id";s:0:"";s:18:"category_sec_limit";s:0:"";s:17:"selcat_prd_status";s:1:"n";s:16:"selcat_prd_style";s:1:"1";s:16:"selcat_prd_limit";s:0:"";s:16:"selbrand_section";a:6:{i:0;s:1:"8";i:1;s:1:"9";i:2;s:1:"7";i:3;s:1:"5";i:4;s:1:"6";i:5;s:2:"10";}s:19:"selbrand_prd_status";s:1:"n";s:18:"selbrand_prd_style";s:1:"1";s:18:"selbrand_prd_limit";s:0:"";}}}', 1),
+(8, 0, 'rgen_customprd', 'rgen_customprd8', 'a:3:{s:12:"section_name";s:23:"Column - Special offers";s:6:"mod_id";s:15:"rgen_customprd8";s:12:"section_data";a:1:{i:0;a:21:{s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";s:5:"title";a:1:{i:1;s:12:"New arrivals";}s:9:"css_class";s:0:"";s:8:"prdTypes";s:6:"latest";s:8:"prdStyle";s:4:"grid";s:11:"prdboxStyle";s:4:"prd1";s:8:"prdlimit";s:1:"8";s:13:"category_name";s:0:"";s:11:"category_id";s:0:"";s:10:"brand_name";s:0:"";s:8:"brand_id";s:0:"";s:17:"category_sec_name";s:0:"";s:15:"category_sec_id";s:0:"";s:18:"category_sec_limit";s:0:"";s:17:"selcat_prd_status";s:1:"n";s:16:"selcat_prd_style";s:1:"1";s:16:"selcat_prd_limit";s:0:"";s:19:"selbrand_prd_status";s:1:"n";s:18:"selbrand_prd_style";s:1:"1";s:18:"selbrand_prd_limit";s:0:"";}}}', 1),
+(9, 0, 'rgen_customprd', 'rgen_customprd9', 'a:3:{s:12:"section_name";s:29:"Home - Category with products";s:6:"mod_id";s:15:"rgen_customprd9";s:12:"section_data";a:1:{i:0;a:22:{s:6:"status";s:1:"1";s:10:"sort_order";s:1:"0";s:5:"title";a:1:{i:1;s:0:"";}s:9:"css_class";s:0:"";s:8:"prdTypes";s:13:"selcatSection";s:8:"prdStyle";s:6:"scroll";s:11:"prdboxStyle";s:4:"prd1";s:8:"prdlimit";s:1:"8";s:13:"category_name";s:0:"";s:11:"category_id";s:0:"";s:10:"brand_name";s:0:"";s:8:"brand_id";s:0:"";s:17:"category_sec_name";s:0:"";s:15:"category_sec_id";s:0:"";s:18:"category_sec_limit";s:0:"";s:14:"selcat_section";a:5:{i:0;s:2:"20";i:1;s:2:"18";i:2;s:2:"24";i:3;s:2:"33";i:4;s:2:"34";}s:17:"selcat_prd_status";s:1:"y";s:16:"selcat_prd_style";s:1:"1";s:16:"selcat_prd_limit";s:1:"4";s:19:"selbrand_prd_status";s:1:"n";s:18:"selbrand_prd_style";s:1:"1";s:18:"selbrand_prd_limit";s:0:"";}}}', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rgen_custom_description`
+--
+
+CREATE TABLE IF NOT EXISTS `rgen_custom_description` (
+  `rgen_id` int(11) NOT NULL AUTO_INCREMENT,
+  `language_id` int(11) NOT NULL DEFAULT '1',
+  `mod_id` varchar(32) NOT NULL,
+  `group` varchar(32) NOT NULL,
+  `value` mediumtext NOT NULL,
+  `title` mediumtext NOT NULL,
+  PRIMARY KEY (`rgen_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
+
+--
+-- Dumping data for table `rgen_custom_description`
+--
+
+INSERT INTO `rgen_custom_description` (`rgen_id`, `language_id`, `mod_id`, `group`, `value`, `title`) VALUES
+(1, 1, 'rgen_custom_module1', 'rgen_custom', '&lt;div class=&quot;banner-grid&quot;&gt;\r\n&lt;div class=&quot;row col-8 b-40&quot;&gt;\r\n&lt;div class=&quot;col&quot;&gt;&lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner01.jpg&quot; /&gt; &lt;/a&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col&quot;&gt;&lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner02.jpg&quot; /&gt; &lt;/a&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col&quot;&gt;&lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner03.jpg&quot; /&gt; &lt;/a&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col&quot;&gt;&lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner04.jpg&quot; /&gt; &lt;/a&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col&quot;&gt;&lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner05.jpg&quot; /&gt; &lt;/a&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col&quot;&gt;&lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner06.jpg&quot; style=&quot;width: 139px; height: 160px;&quot; /&gt; &lt;/a&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col&quot;&gt;&lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner07.jpg&quot; /&gt; &lt;/a&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col&quot;&gt;&lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner08.jpg&quot; /&gt; &lt;/a&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;mb hr&quot;&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;/div&gt;\r\n', ''),
+(2, 1, 'rgen_custom_module2', 'rgen_custom', '&lt;div class=&quot;grid-wrp contentbox side-cust-block mb40 mt50&quot;&gt;\r\n&lt;div class=&quot;row col-1 b-10&quot;&gt;\r\n&lt;div class=&quot;col&quot;&gt;\r\n&lt;div class=&quot;cbox&quot;&gt;&lt;a class=&quot;cbox-img&quot; href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;image/data/demo04_images/cms/cusmtom-cms-img3.jpg&quot; /&gt;&lt;/a&gt;\r\n\r\n&lt;div class=&quot;cbox-content&quot;&gt;\r\n&lt;h2 class=&quot;header-4 cbox-hd&quot;&gt;Consectetur adipisicing&lt;/h2&gt;\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/div&gt;\r\n\r\n&lt;div class=&quot;btn-bar&quot;&gt;&lt;a class=&quot;sml-button&quot; href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;Buy now&lt;/a&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;mb&quot;&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;/div&gt;\r\n', ''),
+(3, 1, 'rgen_custom_module3', 'rgen_custom', '&lt;div&gt;&lt;img alt=&quot;payment icons&quot; src=&quot;http://localhost/Eyeslipsfaces/image/data/crads.png&quot; /&gt;&lt;/div&gt;\r\n', ''),
+(22, 1, 'rgen_custom_module4', 'rgen_custom', '&lt;div class=&quot;banner-grid mt60&quot;&gt;\r\n&lt;div class=&quot;row col-1 b-20&quot;&gt;\r\n&lt;div class=&quot;col&quot;&gt;&lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/productpage-banner1.png&quot; /&gt;&lt;/a&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;mb&quot;&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum&lt;/p&gt;\r\n', ''),
+(5, 1, 'rgen_custom_module5', 'rgen_custom', '&lt;div class=&quot;banner-grid mb50&quot;&gt;\r\n&lt;div class=&quot;vr-col b-10&quot;&gt;&lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/cupid-rgen-opencart-store-template/3042304?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner1-dark.png&quot; /&gt;&lt;/a&gt; &lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/cupid-rgen-opencart-store-template/3042304?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner2-dark.png&quot; /&gt;&lt;/a&gt; &lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/cupid-rgen-opencart-store-template/3042304?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner3-dark.png&quot; /&gt;&lt;/a&gt; &lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/cupid-rgen-opencart-store-template/3042304?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner4-dark.png&quot; /&gt;&lt;/a&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n', ''),
+(6, 1, 'rgen_custom_module6', 'rgen_custom', '&lt;div class=&quot;slide-widget&quot; data-auto=&quot;true&quot; data-effect=&quot;slide&quot; data-height=&quot;200&quot; data-interval=&quot;2000&quot; data-pauseonhover=&quot;true&quot; data-width=&quot;200&quot; style=&quot;margin-bottom:50px;&quot;&gt;\r\n&lt;div class=&quot;slide&quot;&gt;&lt;a href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner01-200x200.jpg&quot; /&gt;&lt;/a&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;slide&quot;&gt;&lt;a href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner02-200x200.jpg&quot; /&gt;&lt;/a&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;slide&quot;&gt;&lt;a href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner03-200x200.jpg&quot; /&gt;&lt;/a&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n', ''),
+(23, 1, 'rgen_custom_module7', 'rgen_custom', '&lt;div&gt;&lt;iframe allowfullscreen=&quot;&quot; frameborder=&quot;0&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/pkqzFUhGPJg&quot; width=&quot;100%&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;\r\n', 'Demo'),
+(8, 1, 'rgen_custom_module8', 'rgen_custom', '&lt;p style=&quot;font-size:18px;&quot;&gt;Any number of extra tabs on all product page or selected product page&lt;/p&gt;\r\n\r\n&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&amp;nbsp;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum&lt;/span&gt;&lt;/p&gt;\r\n', ''),
+(9, 1, 'rgen_custom_module9', 'rgen_custom', '&lt;style type=&quot;text/css&quot;&gt;.promo-code {\r\n	padding: 8px 15px;\r\n	background-color: #666;\r\n	border-radius: 5px;\r\n}\r\n.promo-code a {\r\n	color: #ccc;\r\n}\r\n.promo-code p {\r\n	margin-bottom: 0px;\r\n	color: #fff;\r\n}\r\n.promo-code .offer-label {\r\n	font-size: 16px;\r\n	display: inline-block;\r\n	vertical-align: middle;\r\n	margin-right: 10px;\r\n}\r\n.promo-code .offer-code { \r\n	display: inline-block;\r\n	padding: 2px 10px;\r\n	border-radius: 3px;\r\n	background-color: #B7E277;\r\n	color: #333;\r\n	margin: 0 2px;\r\n}\r\n.offer-value {\r\n	display: inline-block;\r\n	padding: 2px 10px;\r\n	border-radius: 3px;\r\n	background-color: #999;\r\n	color: #FFF;\r\n	margin: 0 2px;\r\n	padding: 1px 10px;	\r\n}\r\n&lt;/style&gt;\r\n&lt;div class=&quot;promo-code&quot;&gt;\r\n&lt;p&gt;&lt;strong class=&quot;offer-label&quot;&gt;OFFERS:&lt;/strong&gt; &lt;strong class=&quot;offer-value&quot;&gt;Extra 20% Off&lt;/strong&gt; on all purchases over $100, use &lt;strong class=&quot;offer-code&quot;&gt;Promo: ABC100XYZ&lt;/strong&gt; at check out. &lt;a&gt;Conditions apply&lt;/a&gt;&lt;/p&gt;\r\n&lt;/div&gt;\r\n', ''),
+(10, 1, 'rgen_custom_module10', 'rgen_custom', '&lt;div class=&quot;banner-grid&quot;&gt;\r\n&lt;div class=&quot;row col-4 b-10&quot;&gt;\r\n&lt;div class=&quot;col&quot;&gt;&lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner01-pr.jpg&quot; /&gt; &lt;/a&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col&quot;&gt;&lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner02-p.jpg&quot; /&gt; &lt;/a&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col&quot;&gt;&lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner03-pr.jpg&quot; /&gt; &lt;/a&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col&quot;&gt;&lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner04-pr.jpg&quot; /&gt; &lt;/a&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;banner-grid&quot;&gt;\r\n&lt;div class=&quot;row col-4 b-40&quot;&gt;\r\n&lt;div class=&quot;col&quot;&gt;&lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner1-228x160.png&quot; /&gt;&lt;/a&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col&quot;&gt;&lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner2-228x160.png&quot; /&gt;&lt;/a&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col&quot;&gt;&lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner3-228x160.png&quot; /&gt;&lt;/a&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col&quot;&gt;&lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner4-228x160.png&quot; /&gt;&lt;/a&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;mb hr&quot;&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;/div&gt;\r\n', ''),
+(11, 1, 'rgen_custom_module11', 'rgen_custom', '&lt;div class=&quot;banner-grid mb50&quot;&gt;\r\n&lt;div class=&quot;vr-col b-10&quot;&gt;&lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/cupid-rgen-opencart-store-template/3042304?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/bnr-307x160_1.jpg&quot; /&gt;&lt;/a&gt; &lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/cupid-rgen-opencart-store-template/3042304?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/bnr-307x160_2.jpg&quot; /&gt;&lt;/a&gt; &lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/cupid-rgen-opencart-store-template/3042304?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/bnr-307x160_3.jpg&quot; /&gt;&lt;/a&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n', ''),
+(21, 1, 'rgen_custom_module12', 'rgen_custom', '&lt;p&gt;&lt;iframe allowtransparency=&quot;true&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; src=&quot;//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FRGenesisArt%2F221851084595431&amp;amp;width&amp;amp;height=258&amp;amp;colorscheme=light&amp;amp;show_faces=true&amp;amp;header=false&amp;amp;stream=false&amp;amp;show_border=false&amp;amp;appId=481834025161188&quot; style=&quot;border:none; overflow:hidden; height:258px;&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;\r\n', ''),
+(15, 1, 'rgen_custom_module13', 'rgen_custom', '&lt;div&gt;&lt;a class=&quot;twitter-timeline&quot; data-widget-id=&quot;345031699077410817&quot; href=&quot;https://twitter.com/RGenesisArt&quot;&gt;Tweets by @RGenesisArt&lt;/a&gt; &lt;script&gt;!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?''http'':''https'';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+&quot;://platform.twitter.com/widgets.js&quot;;fjs.parentNode.insertBefore(js,fjs);}}(document,&quot;script&quot;,&quot;twitter-wjs&quot;);&lt;/script&gt;&lt;/div&gt;\r\n', ''),
+(16, 1, 'rgen_custom_module14', 'rgen_custom', '&lt;div class=&quot;banner-grid&quot;&gt;\r\n&lt;div class=&quot;row col-4&quot;&gt;\r\n&lt;div class=&quot;col&quot;&gt;&lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner1-dark.png&quot; /&gt;&lt;/a&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col&quot;&gt;&lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner2-dark.png&quot; /&gt;&lt;/a&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col&quot;&gt;&lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner3-dark.png&quot; /&gt;&lt;/a&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col&quot;&gt;&lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner4-dark.png&quot; /&gt;&lt;/a&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n', ''),
+(17, 1, 'rgen_custom_module15', 'rgen_custom', '&lt;style type=&quot;text/css&quot;&gt;.item-list { \r\n	background: #706A5A;\r\n	padding: 30px;\r\n	min-height: 290px;\r\n	}\r\n.item-list .header-2 { color: #fff; font-weight: 300; }\r\n.item-list ul { \r\n	margin: 0px;\r\n	padding: 0px;\r\n	list-style-type: none;\r\n	}\r\n.item-list li:first-child { \r\n	padding-top: 0px;\r\n	}\r\n.item-list li:last-child { \r\n	border-bottom: none;\r\n	}\r\n.item-list li:last-child { \r\n	padding-bottom: 0px;\r\n	}\r\n.item-list li { \r\n	list-style-type: none;\r\n	border-bottom: 1px solid rgba(255,255,255,0.06);\r\n	padding-bottom: 8px;\r\n	padding-top: 8px;\r\n	font-weight: bold;\r\n	}\r\n.item-list li a { \r\n	color: #EBD592;\r\n	}\r\n&lt;/style&gt;\r\n&lt;div class=&quot;grid-wrp&quot;&gt;\r\n&lt;div class=&quot;row col-3 b-40&quot;&gt;\r\n&lt;div class=&quot;col&quot;&gt;\r\n&lt;div class=&quot;slide-widget&quot; data-auto=&quot;true&quot; data-effect=&quot;slide&quot; data-height=&quot;350&quot; data-interval=&quot;2000&quot; data-pauseonhover=&quot;true&quot; data-width=&quot;373&quot;&gt;\r\n&lt;div class=&quot;slide&quot;&gt;&lt;a href=&quot;http://graphicriver.net/item/classic-badges/1223382?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/slide01.jpg&quot; /&gt;&lt;/a&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;slide&quot;&gt;&lt;a href=&quot;http://graphicriver.net/item/classic-badges/1223382?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/slide02.jpg&quot; /&gt;&lt;/a&gt;&lt;/div&gt;\r\n\r\n&lt;div class=&quot;slide&quot;&gt;&lt;a href=&quot;http://graphicriver.net/item/classic-badges/1223382?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/slide03.jpg&quot; /&gt;&lt;/a&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col&quot;&gt;\r\n&lt;div class=&quot;banner-grid&quot;&gt;\r\n&lt;div class=&quot;vr-col b-10&quot;&gt;&lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner01.png&quot; /&gt;&lt;/a&gt; &lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/cupid-rgen-opencart-store-template/3042304?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner02-ho.png&quot; /&gt;&lt;/a&gt; &lt;a class=&quot;bnr&quot; href=&quot;http://themeforest.net/item/life-style-modern-online-store-design/1746655?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/banner03-ho.png&quot; /&gt;&lt;/a&gt;&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;col&quot;&gt;\r\n&lt;div class=&quot;item-list&quot;&gt;\r\n&lt;h3 class=&quot;header-2&quot;&gt;Check our other items&lt;/h3&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&lt;a href=&quot;http://themeforest.net/item/cupid-rgen-opencart-store-template/3042304?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;Cupid - R.Gen OpenCart Store Template&lt;/a&gt;&lt;/li&gt;\r\n	&lt;li&gt;&lt;a href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;R.Gen - OpenCart Modern Store Design&lt;/a&gt;&lt;/li&gt;\r\n	&lt;li&gt;&lt;a href=&quot;http://themeforest.net/item/rgen-circle-creative-psd-template/2297212?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;R.Gen - Circle Creative PSD Template&lt;/a&gt;&lt;/li&gt;\r\n	&lt;li&gt;&lt;a href=&quot;http://themeforest.net/item/rgen-single-page-site-template/2035475?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;R.Gen - Single Page Site Template&lt;/a&gt;&lt;/li&gt;\r\n	&lt;li&gt;&lt;a href=&quot;http://themeforest.net/item/life-style-modern-online-store-design/1746655?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;Life Style Modern Online Store Design&lt;/a&gt;&lt;/li&gt;\r\n	&lt;li&gt;&lt;a href=&quot;http://graphicriver.net/item/royal-golden-badges/1468714?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;Royal Golden Badges&lt;/a&gt;&lt;/li&gt;\r\n	&lt;li&gt;&lt;a href=&quot;http://graphicriver.net/item/touchstore-ecommerce-gui-for-tablet-apps-web/1396141?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;Touch-Store Ecommerce GUI for Tablet Apps &amp;amp; Web&lt;/a&gt;&lt;/li&gt;\r\n	&lt;li&gt;&lt;a href=&quot;http://graphicriver.net/item/classic-metal-badges/1130469?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;Classic Metal Badges&lt;/a&gt;&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;div class=&quot;mb hr&quot;&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;/div&gt;\r\n', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rgen_gallery`
+--
+
+CREATE TABLE IF NOT EXISTS `rgen_gallery` (
+  `rgen_id` int(11) NOT NULL AUTO_INCREMENT,
+  `store_id` int(11) NOT NULL DEFAULT '0',
+  `group` varchar(32) NOT NULL,
+  `mod_id` varchar(64) NOT NULL,
+  `value` mediumtext NOT NULL,
+  `serialized` tinyint(1) NOT NULL,
+  PRIMARY KEY (`rgen_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rgen_gallery_description`
+--
+
+CREATE TABLE IF NOT EXISTS `rgen_gallery_description` (
+  `rgen_id` int(11) NOT NULL AUTO_INCREMENT,
+  `store_id` int(11) NOT NULL DEFAULT '0',
+  `language_id` int(11) NOT NULL DEFAULT '1',
+  `group` varchar(32) NOT NULL,
+  `mod_id` varchar(32) NOT NULL,
+  `banner_id` varchar(32) NOT NULL,
+  `section_title` mediumtext NOT NULL,
+  `title` mediumtext NOT NULL,
+  `image` mediumtext NOT NULL,
+  `description` mediumtext NOT NULL,
+  PRIMARY KEY (`rgen_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rgen_megamenu`
+--
+
+CREATE TABLE IF NOT EXISTS `rgen_megamenu` (
+  `rgen_id` int(11) NOT NULL AUTO_INCREMENT,
+  `store_id` int(11) NOT NULL DEFAULT '0',
+  `group` varchar(32) NOT NULL,
+  `key` varchar(64) NOT NULL,
+  `value` mediumtext NOT NULL,
+  `serialized` tinyint(1) NOT NULL,
+  PRIMARY KEY (`rgen_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `rgen_megamenu`
+--
+
+INSERT INTO `rgen_megamenu` (`rgen_id`, `store_id`, `group`, `key`, `value`, `serialized`) VALUES
+(1, 0, 'rgen_megamenu', 'rgen_menu1', 'a:7:{s:9:"menu_name";s:14:"All Categories";s:6:"mod_id";s:10:"rgen_menu1";s:9:"menu_type";s:8:"cat_mega";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"0";s:5:"class";s:0:"";s:8:"cat_mega";a:13:{s:4:"name";a:1:{i:1;s:10:"Categories";}s:3:"url";s:0:"";s:8:"lbl_text";a:1:{i:1;s:7:"Explore";}s:7:"lbl_top";s:0:"";s:6:"lbl_bg";s:6:"ffdd00";s:12:"lbl_txtcolor";s:0:"";s:7:"cat_img";s:1:"n";s:4:"type";s:6:"normal";s:6:"maxsub";s:0:"";s:7:"columns";s:0:"";s:6:"cat_id";a:8:{i:0;s:2:"20";i:1;s:2:"18";i:2;s:2:"25";i:3;s:2:"57";i:4;s:2:"17";i:5;s:2:"24";i:6;s:2:"33";i:7;s:2:"34";}s:7:"l_width";s:3:"160";s:7:"r_width";s:3:"160";}}', 1),
+(2, 0, 'rgen_megamenu', 'rgen_menu2', 'a:7:{s:9:"menu_name";s:10:"Brand menu";s:6:"mod_id";s:10:"rgen_menu2";s:9:"menu_type";s:6:"brands";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";s:5:"class";s:0:"";s:6:"brands";a:12:{s:4:"name";a:1:{i:1;s:14:"Shop by Brands";}s:3:"url";s:0:"";s:8:"lbl_text";a:1:{i:1;s:3:"HOT";}s:7:"lbl_top";s:0:"";s:6:"lbl_bg";s:6:"ff7d00";s:12:"lbl_txtcolor";s:0:"";s:9:"brand_img";s:1:"y";s:4:"type";s:4:"mega";s:7:"columns";s:1:"3";s:8:"brand_id";a:6:{i:0;s:1:"8";i:1;s:1:"9";i:2;s:1:"7";i:3;s:1:"5";i:4;s:1:"6";i:5;s:2:"10";}s:7:"l_width";s:3:"160";s:7:"r_width";s:3:"160";}}', 1),
+(3, 0, 'rgen_megamenu', 'rgen_menu3', 'a:7:{s:9:"menu_name";s:18:"Graphicriver items";s:6:"mod_id";s:10:"rgen_menu3";s:9:"menu_type";s:11:"custom_html";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"3";s:5:"class";s:13:"menu-ouritems";s:11:"custom_html";a:7:{s:4:"name";a:1:{i:1;s:12:"Graphicriver";}s:3:"url";s:62:"http://graphicriver.net/user/R_GENESIS/portfolio?ref=R_GENESIS";s:8:"lbl_text";a:1:{i:1;s:12:"Graphicriver";}s:7:"lbl_top";s:3:"-12";s:6:"lbl_bg";s:0:"";s:12:"lbl_txtcolor";s:0:"";s:5:"width";s:3:"442";}}', 1),
+(4, 0, 'rgen_megamenu', 'rgen_menu4', 'a:7:{s:9:"menu_name";s:18:"Category mega menu";s:6:"mod_id";s:10:"rgen_menu4";s:9:"menu_type";s:8:"cat_mega";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"2";s:5:"class";s:0:"";s:8:"cat_mega";a:13:{s:4:"name";a:1:{i:1;s:14:"New Categories";}s:3:"url";s:0:"";s:8:"lbl_text";a:1:{i:1;s:0:"";}s:7:"lbl_top";s:0:"";s:6:"lbl_bg";s:0:"";s:12:"lbl_txtcolor";s:0:"";s:7:"cat_img";s:1:"n";s:4:"type";s:4:"mega";s:6:"maxsub";s:0:"";s:7:"columns";s:1:"2";s:6:"cat_id";a:4:{i:0;s:2:"20";i:1;s:2:"18";i:2;s:2:"25";i:3;s:2:"34";}s:7:"l_width";s:3:"160";s:7:"r_width";s:3:"160";}}', 1),
+(5, 0, 'rgen_megamenu', 'rgen_menu5', 'a:7:{s:9:"menu_name";s:17:"Themeforest items";s:6:"mod_id";s:10:"rgen_menu5";s:9:"menu_type";s:11:"custom_html";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"4";s:5:"class";s:14:"menu-ouritems1";s:11:"custom_html";a:7:{s:4:"name";a:1:{i:1;s:11:"Themeforest";}s:3:"url";s:33:"http://themeforest.net/user/R_GEN";s:8:"lbl_text";a:1:{i:1;s:11:"Themeforest";}s:7:"lbl_top";s:3:"-12";s:6:"lbl_bg";s:0:"";s:12:"lbl_txtcolor";s:0:"";s:5:"width";s:3:"266";}}', 1),
+(6, 0, 'rgen_megamenu', 'rgen_menu6', 'a:7:{s:9:"menu_name";s:9:"Buy theme";s:6:"mod_id";s:10:"rgen_menu6";s:9:"menu_type";s:10:"menu_items";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"6";s:5:"class";s:0:"";s:9:"menuitems";a:1:{i:0;a:3:{s:4:"name";a:1:{i:1;s:9:"Buy Theme";}s:3:"url";s:83:"http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS";s:4:"open";s:1:"n";}}}', 1),
+(7, 0, 'rgen_megamenu', 'rgen_menu7', 'a:7:{s:9:"menu_name";s:12:"New arrivals";s:6:"mod_id";s:10:"rgen_menu7";s:9:"menu_type";s:8:"products";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"2";s:5:"class";s:0:"";s:8:"products";a:12:{s:4:"name";a:1:{i:1;s:12:"New Arrivals";}s:3:"url";s:0:"";s:8:"lbl_text";a:1:{i:1;s:3:"New";}s:7:"lbl_top";s:0:"";s:6:"lbl_bg";s:6:"ffdd00";s:12:"lbl_txtcolor";s:0:"";s:7:"prd_img";s:1:"y";s:4:"type";s:4:"mega";s:7:"columns";s:0:"";s:6:"prd_id";a:8:{i:0;s:2:"42";i:1;s:2:"30";i:2;s:2:"47";i:3;s:2:"28";i:4;s:2:"40";i:5;s:2:"48";i:6;s:2:"43";i:7;s:2:"44";}s:7:"l_width";s:3:"160";s:7:"r_width";s:3:"160";}}', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rgen_megamenu_description`
+--
+
+CREATE TABLE IF NOT EXISTS `rgen_megamenu_description` (
+  `rgen_id` int(11) NOT NULL AUTO_INCREMENT,
+  `language_id` int(11) NOT NULL DEFAULT '1',
+  `mod_id` varchar(32) NOT NULL,
+  `group` varchar(32) NOT NULL,
+  `value` mediumtext NOT NULL,
+  PRIMARY KEY (`rgen_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=39 ;
+
+--
+-- Dumping data for table `rgen_megamenu_description`
+--
+
+INSERT INTO `rgen_megamenu_description` (`rgen_id`, `language_id`, `mod_id`, `group`, `value`) VALUES
+(31, 1, 'rgen_menu1-cat_mega-t', 'rgen_megamenu', ''),
+(32, 1, 'rgen_menu1-cat_mega-r', 'rgen_megamenu', ''),
+(33, 1, 'rgen_menu1-cat_mega-b', 'rgen_megamenu', ''),
+(34, 1, 'rgen_menu1-cat_mega-l', 'rgen_megamenu', ''),
+(5, 1, 'rgen_menu2-brands-t', 'rgen_megamenu', '&lt;div class=&quot;mb10&quot;&gt;&lt;iframe allowfullscreen=&quot;&quot; frameborder=&quot;0&quot; height=&quot;200&quot; src=&quot;//www.youtube.com/embed/iKcBNbRSdyI&quot; width=&quot;100%&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;\r\n'),
+(6, 1, 'rgen_menu2-brands-r', 'rgen_megamenu', ''),
+(7, 1, 'rgen_menu2-brands-b', 'rgen_megamenu', ''),
+(8, 1, 'rgen_menu2-brands-l', 'rgen_megamenu', ''),
+(38, 1, 'rgen_menu3-htmlData', 'rgen_megamenu', '&lt;style type=&quot;text/css&quot;&gt;.menu-ouritems .gr-grid a { display: inline-block; margin-bottom: 10px; margin-right: 6px; }\r\n.menu-ouritems,\r\n#menu &gt; ul &gt; li.menu-ouritems &gt; a.top-lvl,\r\n#menu &gt; ul &gt; li.menu-ouritems:hover &gt; a.top-lvl,\r\n#menu &gt; ul &gt; li.menu-ouritems:hover,\r\n#menu &gt; ul &gt; li.menu-ouritems .sub-menu { background-color: #1d96cf; }\r\n#menu .menu-ouritems .menu-html-wrp .menu-html { background-color: #F4F4F4; }\r\n.menu-ouritems .menu-badge b {\r\n	background-image: url(image/data/graphicriver.png);\r\n	background-repeat: no-repeat;\r\n	background-position: center -7px;\r\n	background-size: 100%;\r\n	width: 32px;\r\n	height: 26px;\r\n	padding: 0;\r\n	background-color: transparent;\r\n	font-size: 0px; line-height: 0px;\r\n}\r\n.menu-ouritems .menu-badge b i { display: none; }\r\n@media only screen and (min-width: 200px) and (max-width: 767px) {\r\n	.menu-ouritems .menu-badge b{ top: -22px; }\r\n}\r\n&lt;/style&gt;\r\n&lt;div class=&quot;gr-grid&quot;&gt;&lt;a href=&quot;http://graphicriver.net/item/retro-classic-badges/1615328?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/Graphicriver-Classic-Badges.jpg&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;http://graphicriver.net/item/royal-classic-badges/1512844?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/Graphicriver-Classic-Metal-Badges.jpg&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;http://graphicriver.net/item/royal-golden-badges/1468714?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/Graphicriver-E-commerce-Offers-Email-Template-Design-Vol2.jpg&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;http://graphicriver.net/item/classic-badges/1223382?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/Graphicriver-E-commerce-Offers-Email-Template-Design-Vol3.jpg&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;http://graphicriver.net/item/classic-metal-badges/1130469?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/Graphicriver-E-commerce-Special-Offer-Email-Template-Design.jpg&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;http://graphicriver.net/item/touchstore-ecommerce-gui-for-tablet-apps-web/1396141?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/Graphicriver-Ecommerce-Offers-Email-Template-Design-Vol.4.jpg&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;http://graphicriver.net/item/ecommerce-offers-email-template-design-vol4/1524638?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/Graphicriver-Retro-Classic-Badges.jpg&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;http://graphicriver.net/item/ecommerce-offers-email-template-design-vol3/1176313?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/Graphicriver-Royal-Classic-Badges.jpg&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;http://graphicriver.net/item/ecommerce-offers-email-template-design-vol2/949381?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/Graphicriver-Royal-Golden-Badges.jpg&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;http://graphicriver.net/item/ecommerce-special-offer-email-template-design/491579?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/Graphicriver-Touch-Store-Ecommerce-GUI-for-Tablet-Apps-Web.jpg&quot; /&gt;&lt;/a&gt;&lt;/div&gt;\r\n'),
+(10, 1, 'rgen_menu4-cat_mega-t', 'rgen_megamenu', ''),
+(11, 1, 'rgen_menu4-cat_mega-r', 'rgen_megamenu', ''),
+(12, 1, 'rgen_menu4-cat_mega-b', 'rgen_megamenu', ''),
+(13, 1, 'rgen_menu4-cat_mega-l', 'rgen_megamenu', ''),
+(36, 1, 'rgen_menu5-htmlData', 'rgen_megamenu', '&lt;style type=&quot;text/css&quot;&gt;.menu-ouritems1 .tf-grid a { display: inline-block; margin-bottom: 10px; margin-right: 6px; }\r\n.menu-ouritems1 .tf-grid a img { display: block; }\r\n.menu-ouritems1,\r\n#menu &gt; ul &gt; li.menu-ouritems1 &gt; a.top-lvl,\r\n#menu &gt; ul &gt; li.menu-ouritems1:hover &gt; a.top-lvl,\r\n#menu &gt; ul &gt; li.menu-ouritems1:hover,\r\n#menu &gt; ul &gt; li.menu-ouritems1 .sub-menu { background-color: #ab7a47; }\r\n#menu .menu-ouritems .menu-html-wrp .menu-html { background-color: #F4F4F4; }\r\n.menu-ouritems1 .menu-badge b {\r\n	background-image: url(image/data/themeforest.png);\r\n	background-repeat: no-repeat;\r\n	background-position: center -7px;\r\n	background-size: 100%;\r\n	width: 32px;\r\n	height: 22px;\r\n	padding: 0;\r\n	background-color: transparent;\r\n	font-size: 0px; line-height: 0px;\r\n}\r\n.menu-ouritems1 .menu-badge b i { display: none; }\r\n&lt;/style&gt;\r\n&lt;div class=&quot;tf-grid&quot;&gt;&lt;a href=&quot;http://themeforest.net/item/cupid-rgen-opencart-store-template/3042304?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/Themeforest-Cupid-RGen-OpenCart-Store-Template.jpg&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;http://themeforest.net/item/cupid-rgen-opencart-store-template/3042304?ref=R_GENESIS&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/Themeforest-Life-Style-Modern-Online-Store-Design.jpg&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;http://themeforest.net/item/life-style-modern-online-store-design/1746655?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/Themeforest-RGen-Circle-Creative-PSD-Template.jpg&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;http://themeforest.net/item/rgen-circle-creative-psd-template/2297212?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/Themeforest-RGen-OpenCart-Modern-Store-Design-PSD.jpg&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;http://themeforest.net/item/rgen-opencart-modern-store-design/2228135?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/Themeforest-RGen-OpenCart-Modern-Store-Design.jpg&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;http://themeforest.net/item/rgen-single-page-site-template/2035475?ref=R_GENESIS&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://localhost/Eyeslipsfaces/image/data/Themeforest-RGen-Single-Page-Site-Template.jpg&quot; /&gt;&lt;/a&gt;&lt;/div&gt;\r\n'),
+(15, 1, 'rgen_menu7-products-t', 'rgen_megamenu', ''),
+(16, 1, 'rgen_menu7-products-r', 'rgen_megamenu', ''),
+(17, 1, 'rgen_menu7-products-b', 'rgen_megamenu', ''),
+(18, 1, 'rgen_menu7-products-l', 'rgen_megamenu', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rgen_revoslider`
+--
+
+CREATE TABLE IF NOT EXISTS `rgen_revoslider` (
+  `rgen_id` int(11) NOT NULL AUTO_INCREMENT,
+  `store_id` int(11) NOT NULL DEFAULT '0',
+  `group` varchar(32) NOT NULL,
+  `key` varchar(64) NOT NULL,
+  `value` mediumtext NOT NULL,
+  `serialized` tinyint(1) NOT NULL,
+  PRIMARY KEY (`rgen_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rgen_theme`
+--
+
+CREATE TABLE IF NOT EXISTS `rgen_theme` (
+  `store_id` int(11) NOT NULL DEFAULT '0',
+  `group` varchar(32) NOT NULL,
+  `key` varchar(64) NOT NULL,
+  `value` mediumtext NOT NULL,
+  `serialized` tinyint(1) NOT NULL,
+  PRIMARY KEY (`key`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `setting`
 --
 
@@ -2808,7 +3137,7 @@ CREATE TABLE IF NOT EXISTS `setting` (
   `value` text NOT NULL,
   `serialized` tinyint(1) NOT NULL,
   PRIMARY KEY (`setting_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=134 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6267 ;
 
 --
 -- Dumping data for table `setting`
@@ -2830,122 +3159,643 @@ INSERT INTO `setting` (`setting_id`, `store_id`, `group`, `key`, `value`, `seria
 (13, 0, 'cod', 'cod_status', '1', 0),
 (14, 0, 'shipping', 'shipping_status', '1', 0),
 (15, 0, 'shipping', 'shipping_estimator', '1', 0),
-(16, 0, 'config', 'config_google_analytics', '', 0),
-(17, 0, 'config', 'config_error_filename', 'error.txt', 0),
-(18, 0, 'config', 'config_error_log', '1', 0),
-(19, 0, 'config', 'config_error_display', '1', 0),
-(20, 0, 'config', 'config_compression', '0', 0),
-(133, 0, 'config', 'config_encryption', 'aac9c3a3fec6f7d828437f7721600389', 0),
-(22, 0, 'config', 'config_maintenance', '0', 0),
-(23, 0, 'config', 'config_account_mail', '0', 0),
-(24, 0, 'config', 'config_alert_emails', '', 0),
-(25, 0, 'config', 'config_secure', '0', 0),
-(26, 0, 'config', 'config_seo_url', '0', 0),
 (27, 0, 'coupon', 'coupon_sort_order', '4', 0),
 (28, 0, 'coupon', 'coupon_status', '1', 0),
-(29, 0, 'config', 'config_alert_mail', '0', 0),
-(30, 0, 'config', 'config_smtp_username', '', 0),
-(31, 0, 'config', 'config_smtp_password', '', 0),
-(32, 0, 'config', 'config_smtp_port', '25', 0),
-(33, 0, 'config', 'config_smtp_timeout', '5', 0),
 (34, 0, 'flat', 'flat_sort_order', '1', 0),
 (35, 0, 'flat', 'flat_status', '1', 0),
 (36, 0, 'flat', 'flat_geo_zone_id', '0', 0),
 (37, 0, 'flat', 'flat_tax_class_id', '9', 0),
-(38, 0, 'carousel', 'carousel_module', 'a:1:{i:0;a:10:{s:9:"banner_id";s:1:"8";s:5:"limit";s:1:"5";s:6:"scroll";s:1:"3";s:5:"width";s:2:"80";s:6:"height";s:2:"80";s:11:"resize_type";s:7:"default";s:9:"layout_id";s:1:"1";s:8:"position";s:14:"content_bottom";s:6:"status";s:1:"1";s:10:"sort_order";s:2:"-1";}}', 1),
-(39, 0, 'featured', 'featured_product', '43,40,42,49,46,47,28', 0),
-(40, 0, 'featured', 'featured_module', 'a:1:{i:0;a:8:{s:5:"limit";s:1:"6";s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:11:"resize_type";s:7:"default";s:9:"layout_id";s:1:"1";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"2";}}', 1),
+(239, 0, 'carousel', 'carousel_module', 'a:1:{i:0;a:9:{s:9:"banner_id";s:1:"8";s:5:"limit";s:1:"5";s:6:"scroll";s:1:"3";s:5:"width";s:2:"80";s:6:"height";s:2:"80";s:9:"layout_id";s:1:"1";s:8:"position";s:14:"content_bottom";s:6:"status";s:1:"0";s:10:"sort_order";s:2:"-1";}}', 1),
+(240, 0, 'featured', 'product', '', 0),
+(241, 0, 'featured', 'featured_product', '43,40,42,49,46,47,28', 0),
+(242, 0, 'featured', 'featured_module', 'a:1:{i:0;a:7:{s:5:"limit";s:1:"6";s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:9:"layout_id";s:1:"1";s:8:"position";s:11:"content_top";s:6:"status";s:1:"0";s:10:"sort_order";s:1:"2";}}', 1),
 (41, 0, 'flat', 'flat_cost', '5.00', 0),
 (42, 0, 'credit', 'credit_sort_order', '7', 0),
 (43, 0, 'credit', 'credit_status', '1', 0),
-(44, 0, 'config', 'config_smtp_host', '', 0),
-(45, 0, 'config', 'config_image_cart_height', '47', 0),
-(46, 0, 'config', 'config_mail_protocol', 'mail', 0),
-(47, 0, 'config', 'config_mail_parameter', '', 0),
-(48, 0, 'config', 'config_image_wishlist_height', '47', 0),
-(49, 0, 'config', 'config_image_cart_width', '47', 0),
-(50, 0, 'config', 'config_image_wishlist_width', '47', 0),
-(51, 0, 'config', 'config_image_compare_height', '90', 0),
-(52, 0, 'config', 'config_image_compare_width', '90', 0),
 (53, 0, 'reward', 'reward_sort_order', '2', 0),
 (54, 0, 'reward', 'reward_status', '1', 0),
-(55, 0, 'config', 'config_image_related_height', '80', 0),
 (56, 0, 'affiliate', 'affiliate_module', 'a:1:{i:0;a:4:{s:9:"layout_id";s:2:"10";s:8:"position";s:12:"column_right";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}}', 1),
 (57, 0, 'category', 'category_module', 'a:2:{i:0;a:5:{s:9:"layout_id";s:1:"3";s:8:"position";s:11:"column_left";s:5:"count";s:1:"0";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}i:1;a:5:{s:9:"layout_id";s:1:"2";s:8:"position";s:11:"column_left";s:5:"count";s:1:"0";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}}', 1),
-(58, 0, 'config', 'config_image_related_width', '80', 0),
-(59, 0, 'config', 'config_image_additional_height', '74', 0),
 (60, 0, 'account', 'account_module', 'a:1:{i:0;a:4:{s:9:"layout_id";s:1:"6";s:8:"position";s:12:"column_right";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}}', 1),
-(61, 0, 'config', 'config_image_additional_width', '74', 0),
-(62, 0, 'config', 'config_image_manufacturer_height', '80', 0),
-(63, 0, 'config', 'config_image_manufacturer_width', '80', 0),
-(64, 0, 'config', 'config_image_category_height', '80', 0),
-(65, 0, 'config', 'config_image_category_width', '80', 0),
-(66, 0, 'config', 'config_image_product_height', '80', 0),
-(67, 0, 'config', 'config_image_product_width', '80', 0),
-(68, 0, 'config', 'config_image_popup_height', '500', 0),
-(69, 0, 'config', 'config_image_popup_width', '500', 0),
-(70, 0, 'config', 'config_image_thumb_height', '228', 0),
-(71, 0, 'config', 'config_image_thumb_width', '228', 0),
-(72, 0, 'config', 'config_icon', 'data/cart.png', 0),
-(73, 0, 'config', 'config_logo', 'data/logo.png', 0),
-(74, 0, 'config', 'config_cart_weight', '1', 0),
-(75, 0, 'config', 'config_upload_allowed', 'jpg, JPG, jpeg, gif, png, txt', 0),
-(76, 0, 'config', 'config_file_extension_allowed', 'txt\r\npng\r\njpe\r\njpeg\r\njpg\r\ngif\r\nbmp\r\nico\r\ntiff\r\ntif\r\nsvg\r\nsvgz\r\nzip\r\nrar\r\nmsi\r\ncab\r\nmp3\r\nqt\r\nmov\r\npdf\r\npsd\r\nai\r\neps\r\nps\r\ndoc\r\nrtf\r\nxls\r\nppt\r\nodt\r\nods', 0),
-(77, 0, 'config', 'config_file_mime_allowed', 'text/plain\r\nimage/png\r\nimage/jpeg\r\nimage/jpeg\r\nimage/jpeg\r\nimage/gif\r\nimage/bmp\r\nimage/vnd.microsoft.icon\r\nimage/tiff\r\nimage/tiff\r\nimage/svg+xml\r\nimage/svg+xml\r\napplication/zip\r\napplication/x-rar-compressed\r\napplication/x-msdownload\r\napplication/vnd.ms-cab-compressed\r\naudio/mpeg\r\nvideo/quicktime\r\nvideo/quicktime\r\napplication/pdf\r\nimage/vnd.adobe.photoshop\r\napplication/postscript\r\napplication/postscript\r\napplication/postscript\r\napplication/msword\r\napplication/rtf\r\napplication/vnd.ms-excel\r\napplication/vnd.ms-powerpoint\r\napplication/vnd.oasis.opendocument.text\r\napplication/vnd.oasis.opendocument.spreadsheet', 0),
-(78, 0, 'config', 'config_review_status', '1', 0),
-(79, 0, 'config', 'config_download', '1', 0),
-(80, 0, 'config', 'config_return_status_id', '2', 0),
-(81, 0, 'config', 'config_complete_status_id', '5', 0),
-(82, 0, 'config', 'config_order_status_id', '1', 0),
-(83, 0, 'config', 'config_stock_status_id', '5', 0),
-(84, 0, 'config', 'config_stock_checkout', '0', 0),
-(85, 0, 'config', 'config_stock_warning', '0', 0),
-(86, 0, 'config', 'config_stock_display', '0', 0),
-(87, 0, 'config', 'config_commission', '5', 0),
-(88, 0, 'config', 'config_affiliate_id', '4', 0),
-(89, 0, 'config', 'config_checkout_id', '5', 0),
-(90, 0, 'config', 'config_guest_checkout', '1', 0),
-(91, 0, 'config', 'config_account_id', '3', 0),
-(92, 0, 'config', 'config_customer_price', '0', 0),
-(93, 0, 'config', 'config_customer_group_id', '1', 0),
+(5750, 0, 'config', 'config_google_analytics', '', 0),
+(5726, 0, 'config', 'config_smtp_username', '', 0),
+(5727, 0, 'config', 'config_smtp_password', '', 0),
+(5728, 0, 'config', 'config_smtp_port', '25', 0),
+(5729, 0, 'config', 'config_smtp_timeout', '5', 0),
+(5730, 0, 'config', 'config_alert_mail', '0', 0),
+(5731, 0, 'config', 'config_account_mail', '0', 0),
+(5732, 0, 'config', 'config_alert_emails', '', 0),
+(5733, 0, 'config', 'config_fraud_detection', '0', 0),
+(5734, 0, 'config', 'config_fraud_key', '', 0),
+(5735, 0, 'config', 'config_fraud_score', '', 0),
+(5736, 0, 'config', 'config_fraud_status_id', '7', 0),
+(5737, 0, 'config', 'config_secure', '0', 0),
+(5738, 0, 'config', 'config_shared', '0', 0),
+(5739, 0, 'config', 'config_robots', 'abot\r\ndbot\r\nebot\r\nhbot\r\nkbot\r\nlbot\r\nmbot\r\nnbot\r\nobot\r\npbot\r\nrbot\r\nsbot\r\ntbot\r\nvbot\r\nybot\r\nzbot\r\nbot.\r\nbot/\r\n_bot\r\n.bot\r\n/bot\r\n-bot\r\n:bot\r\n(bot\r\ncrawl\r\nslurp\r\nspider\r\nseek\r\naccoona\r\nacoon\r\nadressendeutschland\r\nah-ha.com\r\nahoy\r\naltavista\r\nananzi\r\nanthill\r\nappie\r\narachnophilia\r\narale\r\naraneo\r\naranha\r\narchitext\r\naretha\r\narks\r\nasterias\r\natlocal\r\natn\r\natomz\r\naugurfind\r\nbackrub\r\nbannana_bot\r\nbaypup\r\nbdfetch\r\nbig brother\r\nbiglotron\r\nbjaaland\r\nblackwidow\r\nblaiz\r\nblog\r\nblo.\r\nbloodhound\r\nboitho\r\nbooch\r\nbradley\r\nbutterfly\r\ncalif\r\ncassandra\r\nccubee\r\ncfetch\r\ncharlotte\r\nchurl\r\ncienciaficcion\r\ncmc\r\ncollective\r\ncomagent\r\ncombine\r\ncomputingsite\r\ncsci\r\ncurl\r\ncusco\r\ndaumoa\r\ndeepindex\r\ndelorie\r\ndepspid\r\ndeweb\r\ndie blinde kuh\r\ndigger\r\nditto\r\ndmoz\r\ndocomo\r\ndownload express\r\ndtaagent\r\ndwcp\r\nebiness\r\nebingbong\r\ne-collector\r\nejupiter\r\nemacs-w3 search engine\r\nesther\r\nevliya celebi\r\nezresult\r\nfalcon\r\nfelix ide\r\nferret\r\nfetchrover\r\nfido\r\nfindlinks\r\nfireball\r\nfish search\r\nfouineur\r\nfunnelweb\r\ngazz\r\ngcreep\r\ngenieknows\r\ngetterroboplus\r\ngeturl\r\nglx\r\ngoforit\r\ngolem\r\ngrabber\r\ngrapnel\r\ngralon\r\ngriffon\r\ngromit\r\ngrub\r\ngulliver\r\nhamahakki\r\nharvest\r\nhavindex\r\nhelix\r\nheritrix\r\nhku www octopus\r\nhomerweb\r\nhtdig\r\nhtml index\r\nhtml_analyzer\r\nhtmlgobble\r\nhubater\r\nhyper-decontextualizer\r\nia_archiver\r\nibm_planetwide\r\nichiro\r\niconsurf\r\niltrovatore\r\nimage.kapsi.net\r\nimagelock\r\nincywincy\r\nindexer\r\ninfobee\r\ninformant\r\ningrid\r\ninktomisearch.com\r\ninspector web\r\nintelliagent\r\ninternet shinchakubin\r\nip3000\r\niron33\r\nisraeli-search\r\nivia\r\njack\r\njakarta\r\njavabee\r\njetbot\r\njumpstation\r\nkatipo\r\nkdd-explorer\r\nkilroy\r\nknowledge\r\nkototoi\r\nkretrieve\r\nlabelgrabber\r\nlachesis\r\nlarbin\r\nlegs\r\nlibwww\r\nlinkalarm\r\nlink validator\r\nlinkscan\r\nlockon\r\nlwp\r\nlycos\r\nmagpie\r\nmantraagent\r\nmapoftheinternet\r\nmarvin/\r\nmattie\r\nmediafox\r\nmediapartners\r\nmercator\r\nmerzscope\r\nmicrosoft url control\r\nminirank\r\nmiva\r\nmj12\r\nmnogosearch\r\nmoget\r\nmonster\r\nmoose\r\nmotor\r\nmultitext\r\nmuncher\r\nmuscatferret\r\nmwd.search\r\nmyweb\r\nnajdi\r\nnameprotect\r\nnationaldirectory\r\nnazilla\r\nncsa beta\r\nnec-meshexplorer\r\nnederland.zoek\r\nnetcarta webmap engine\r\nnetmechanic\r\nnetresearchserver\r\nnetscoop\r\nnewscan-online\r\nnhse\r\nnokia6682/\r\nnomad\r\nnoyona\r\nnutch\r\nnzexplorer\r\nobjectssearch\r\noccam\r\nomni\r\nopen text\r\nopenfind\r\nopenintelligencedata\r\norb search\r\nosis-project\r\npack rat\r\npageboy\r\npagebull\r\npage_verifier\r\npanscient\r\nparasite\r\npartnersite\r\npatric\r\npear.\r\npegasus\r\nperegrinator\r\npgp key agent\r\nphantom\r\nphpdig\r\npicosearch\r\npiltdownman\r\npimptrain\r\npinpoint\r\npioneer\r\npiranha\r\nplumtreewebaccessor\r\npogodak\r\npoirot\r\npompos\r\npoppelsdorf\r\npoppi\r\npopular iconoclast\r\npsycheclone\r\npublisher\r\npython\r\nrambler\r\nraven search\r\nroach\r\nroad runner\r\nroadhouse\r\nrobbie\r\nrobofox\r\nrobozilla\r\nrules\r\nsalty\r\nsbider\r\nscooter\r\nscoutjet\r\nscrubby\r\nsearch.\r\nsearchprocess\r\nsemanticdiscovery\r\nsenrigan\r\nsg-scout\r\nshai''hulud\r\nshark\r\nshopwiki\r\nsidewinder\r\nsift\r\nsilk\r\nsimmany\r\nsite searcher\r\nsite valet\r\nsitetech-rover\r\nskymob.com\r\nsleek\r\nsmartwit\r\nsna-\r\nsnappy\r\nsnooper\r\nsohu\r\nspeedfind\r\nsphere\r\nsphider\r\nspinner\r\nspyder\r\nsteeler/\r\nsuke\r\nsuntek\r\nsupersnooper\r\nsurfnomore\r\nsven\r\nsygol\r\nszukacz\r\ntach black widow\r\ntarantula\r\ntempleton\r\n/teoma\r\nt-h-u-n-d-e-r-s-t-o-n-e\r\ntheophrastus\r\ntitan\r\ntitin\r\ntkwww\r\ntoutatis\r\nt-rex\r\ntutorgig\r\ntwiceler\r\ntwisted\r\nucsd\r\nudmsearch\r\nurl check\r\nupdated\r\nvagabondo\r\nvalkyrie\r\nverticrawl\r\nvictoria\r\nvision-search\r\nvolcano\r\nvoyager/\r\nvoyager-hc\r\nw3c_validator\r\nw3m2\r\nw3mir\r\nwalker\r\nwallpaper\r\nwanderer\r\nwauuu\r\nwavefire\r\nweb core\r\nweb hopper\r\nweb wombat\r\nwebbandit\r\nwebcatcher\r\nwebcopy\r\nwebfoot\r\nweblayers\r\nweblinker\r\nweblog monitor\r\nwebmirror\r\nwebmonkey\r\nwebquest\r\nwebreaper\r\nwebsitepulse\r\nwebsnarf\r\nwebstolperer\r\nwebvac\r\nwebwalk\r\nwebwatch\r\nwebwombat\r\nwebzinger\r\nwhizbang\r\nwhowhere\r\nwild ferret\r\nworldlight\r\nwwwc\r\nwwwster\r\nxenu\r\nxget\r\nxift\r\nxirq\r\nyandex\r\nyanga\r\nyeti\r\nyodao\r\nzao\r\nzippp\r\nzyborg', 0),
 (94, 0, 'voucher', 'voucher_sort_order', '8', 0),
 (95, 0, 'voucher', 'voucher_status', '1', 0),
-(96, 0, 'config', 'config_length_class_id', '1', 0),
-(97, 0, 'config', 'config_invoice_prefix', 'INV-2013-00', 0),
-(98, 0, 'config', 'config_tax', '1', 0),
-(99, 0, 'config', 'config_tax_customer', 'shipping', 0),
-(100, 0, 'config', 'config_tax_default', 'shipping', 0),
-(101, 0, 'config', 'config_admin_limit', '20', 0),
-(102, 0, 'config', 'config_catalog_limit', '15', 0),
 (103, 0, 'free_checkout', 'free_checkout_status', '1', 0),
 (104, 0, 'free_checkout', 'free_checkout_order_status_id', '1', 0),
-(105, 0, 'config', 'config_weight_class_id', '1', 0),
-(106, 0, 'config', 'config_currency_auto', '1', 0),
-(107, 0, 'config', 'config_currency', 'USD', 0),
-(108, 0, 'slideshow', 'slideshow_module', 'a:1:{i:0;a:8:{s:9:"banner_id";s:1:"7";s:5:"width";s:3:"980";s:6:"height";s:3:"280";s:11:"resize_type";s:7:"default";s:9:"layout_id";s:1:"1";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}}', 1),
-(109, 0, 'banner', 'banner_module', 'a:1:{i:0;a:8:{s:9:"banner_id";s:1:"6";s:5:"width";s:3:"182";s:6:"height";s:3:"182";s:11:"resize_type";s:7:"default";s:9:"layout_id";s:1:"3";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"3";}}', 1),
-(110, 0, 'config', 'config_name', 'Your Store', 0),
-(111, 0, 'config', 'config_owner', 'Your Name', 0),
-(112, 0, 'config', 'config_address', 'Address 1', 0),
-(131, 0, 'config', 'config_email', 'quangthi_90@yahoo.com.vn', 0),
-(114, 0, 'config', 'config_telephone', '123456789', 0),
-(115, 0, 'config', 'config_fax', '', 0),
-(116, 0, 'config', 'config_title', 'Your Store', 0),
-(117, 0, 'config', 'config_meta_description', 'My Store', 0),
-(118, 0, 'config', 'config_template', 'default', 0),
-(119, 0, 'config', 'config_layout_id', '4', 0),
-(120, 0, 'config', 'config_country_id', '222', 0),
-(121, 0, 'config', 'config_zone_id', '3563', 0),
-(122, 0, 'config', 'config_language', 'en', 0),
-(123, 0, 'config', 'config_admin_language', 'en', 0),
-(124, 0, 'config', 'config_order_edit', '100', 0),
-(125, 0, 'config', 'config_voucher_min', '1', 0),
-(126, 0, 'config', 'config_voucher_max', '1000', 0),
-(127, 0, 'config', 'config_customer_group_display', 'a:1:{i:0;s:1:"1";}', 1),
-(128, 0, 'config', 'config_robots', 'abot\r\ndbot\r\nebot\r\nhbot\r\nkbot\r\nlbot\r\nmbot\r\nnbot\r\nobot\r\npbot\r\nrbot\r\nsbot\r\ntbot\r\nvbot\r\nybot\r\nzbot\r\nbot.\r\nbot/\r\n_bot\r\n.bot\r\n/bot\r\n-bot\r\n:bot\r\n(bot\r\ncrawl\r\nslurp\r\nspider\r\nseek\r\naccoona\r\nacoon\r\nadressendeutschland\r\nah-ha.com\r\nahoy\r\naltavista\r\nananzi\r\nanthill\r\nappie\r\narachnophilia\r\narale\r\naraneo\r\naranha\r\narchitext\r\naretha\r\narks\r\nasterias\r\natlocal\r\natn\r\natomz\r\naugurfind\r\nbackrub\r\nbannana_bot\r\nbaypup\r\nbdfetch\r\nbig brother\r\nbiglotron\r\nbjaaland\r\nblackwidow\r\nblaiz\r\nblog\r\nblo.\r\nbloodhound\r\nboitho\r\nbooch\r\nbradley\r\nbutterfly\r\ncalif\r\ncassandra\r\nccubee\r\ncfetch\r\ncharlotte\r\nchurl\r\ncienciaficcion\r\ncmc\r\ncollective\r\ncomagent\r\ncombine\r\ncomputingsite\r\ncsci\r\ncurl\r\ncusco\r\ndaumoa\r\ndeepindex\r\ndelorie\r\ndepspid\r\ndeweb\r\ndie blinde kuh\r\ndigger\r\nditto\r\ndmoz\r\ndocomo\r\ndownload express\r\ndtaagent\r\ndwcp\r\nebiness\r\nebingbong\r\ne-collector\r\nejupiter\r\nemacs-w3 search engine\r\nesther\r\nevliya celebi\r\nezresult\r\nfalcon\r\nfelix ide\r\nferret\r\nfetchrover\r\nfido\r\nfindlinks\r\nfireball\r\nfish search\r\nfouineur\r\nfunnelweb\r\ngazz\r\ngcreep\r\ngenieknows\r\ngetterroboplus\r\ngeturl\r\nglx\r\ngoforit\r\ngolem\r\ngrabber\r\ngrapnel\r\ngralon\r\ngriffon\r\ngromit\r\ngrub\r\ngulliver\r\nhamahakki\r\nharvest\r\nhavindex\r\nhelix\r\nheritrix\r\nhku www octopus\r\nhomerweb\r\nhtdig\r\nhtml index\r\nhtml_analyzer\r\nhtmlgobble\r\nhubater\r\nhyper-decontextualizer\r\nia_archiver\r\nibm_planetwide\r\nichiro\r\niconsurf\r\niltrovatore\r\nimage.kapsi.net\r\nimagelock\r\nincywincy\r\nindexer\r\ninfobee\r\ninformant\r\ningrid\r\ninktomisearch.com\r\ninspector web\r\nintelliagent\r\ninternet shinchakubin\r\nip3000\r\niron33\r\nisraeli-search\r\nivia\r\njack\r\njakarta\r\njavabee\r\njetbot\r\njumpstation\r\nkatipo\r\nkdd-explorer\r\nkilroy\r\nknowledge\r\nkototoi\r\nkretrieve\r\nlabelgrabber\r\nlachesis\r\nlarbin\r\nlegs\r\nlibwww\r\nlinkalarm\r\nlink validator\r\nlinkscan\r\nlockon\r\nlwp\r\nlycos\r\nmagpie\r\nmantraagent\r\nmapoftheinternet\r\nmarvin/\r\nmattie\r\nmediafox\r\nmediapartners\r\nmercator\r\nmerzscope\r\nmicrosoft url control\r\nminirank\r\nmiva\r\nmj12\r\nmnogosearch\r\nmoget\r\nmonster\r\nmoose\r\nmotor\r\nmultitext\r\nmuncher\r\nmuscatferret\r\nmwd.search\r\nmyweb\r\nnajdi\r\nnameprotect\r\nnationaldirectory\r\nnazilla\r\nncsa beta\r\nnec-meshexplorer\r\nnederland.zoek\r\nnetcarta webmap engine\r\nnetmechanic\r\nnetresearchserver\r\nnetscoop\r\nnewscan-online\r\nnhse\r\nnokia6682/\r\nnomad\r\nnoyona\r\nnutch\r\nnzexplorer\r\nobjectssearch\r\noccam\r\nomni\r\nopen text\r\nopenfind\r\nopenintelligencedata\r\norb search\r\nosis-project\r\npack rat\r\npageboy\r\npagebull\r\npage_verifier\r\npanscient\r\nparasite\r\npartnersite\r\npatric\r\npear.\r\npegasus\r\nperegrinator\r\npgp key agent\r\nphantom\r\nphpdig\r\npicosearch\r\npiltdownman\r\npimptrain\r\npinpoint\r\npioneer\r\npiranha\r\nplumtreewebaccessor\r\npogodak\r\npoirot\r\npompos\r\npoppelsdorf\r\npoppi\r\npopular iconoclast\r\npsycheclone\r\npublisher\r\npython\r\nrambler\r\nraven search\r\nroach\r\nroad runner\r\nroadhouse\r\nrobbie\r\nrobofox\r\nrobozilla\r\nrules\r\nsalty\r\nsbider\r\nscooter\r\nscoutjet\r\nscrubby\r\nsearch.\r\nsearchprocess\r\nsemanticdiscovery\r\nsenrigan\r\nsg-scout\r\nshai''hulud\r\nshark\r\nshopwiki\r\nsidewinder\r\nsift\r\nsilk\r\nsimmany\r\nsite searcher\r\nsite valet\r\nsitetech-rover\r\nskymob.com\r\nsleek\r\nsmartwit\r\nsna-\r\nsnappy\r\nsnooper\r\nsohu\r\nspeedfind\r\nsphere\r\nsphider\r\nspinner\r\nspyder\r\nsteeler/\r\nsuke\r\nsuntek\r\nsupersnooper\r\nsurfnomore\r\nsven\r\nsygol\r\nszukacz\r\ntach black widow\r\ntarantula\r\ntempleton\r\n/teoma\r\nt-h-u-n-d-e-r-s-t-o-n-e\r\ntheophrastus\r\ntitan\r\ntitin\r\ntkwww\r\ntoutatis\r\nt-rex\r\ntutorgig\r\ntwiceler\r\ntwisted\r\nucsd\r\nudmsearch\r\nurl check\r\nupdated\r\nvagabondo\r\nvalkyrie\r\nverticrawl\r\nvictoria\r\nvision-search\r\nvolcano\r\nvoyager/\r\nvoyager-hc\r\nw3c_validator\r\nw3m2\r\nw3mir\r\nwalker\r\nwallpaper\r\nwanderer\r\nwauuu\r\nwavefire\r\nweb core\r\nweb hopper\r\nweb wombat\r\nwebbandit\r\nwebcatcher\r\nwebcopy\r\nwebfoot\r\nweblayers\r\nweblinker\r\nweblog monitor\r\nwebmirror\r\nwebmonkey\r\nwebquest\r\nwebreaper\r\nwebsitepulse\r\nwebsnarf\r\nwebstolperer\r\nwebvac\r\nwebwalk\r\nwebwatch\r\nwebwombat\r\nwebzinger\r\nwhizbang\r\nwhowhere\r\nwild ferret\r\nworldlight\r\nwwwc\r\nwwwster\r\nxenu\r\nxget\r\nxift\r\nxirq\r\nyandex\r\nyanga\r\nyeti\r\nyodao\r\nzao\r\nzippp\r\nzyborg', 0),
-(129, 0, 'config', 'config_password', '1', 0),
-(130, 0, 'config', 'config_product_count', '1', 0),
-(132, 0, 'config', 'config_url', 'http://localhost/Eyeslipsfaces/', 0);
+(5751, 0, 'slideshow', 'slideshow_module', 'a:1:{i:0;a:7:{s:9:"banner_id";s:1:"9";s:5:"width";s:4:"1180";s:6:"height";s:3:"500";s:9:"layout_id";s:1:"1";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"0";}}', 1),
+(238, 0, 'banner', 'banner_module', 'a:1:{i:0;a:7:{s:9:"banner_id";s:1:"6";s:5:"width";s:3:"182";s:6:"height";s:3:"182";s:9:"layout_id";s:1:"3";s:8:"position";s:11:"column_left";s:6:"status";s:1:"0";s:10:"sort_order";s:1:"3";}}', 1),
+(5740, 0, 'config', 'config_seo_url', '0', 0),
+(5741, 0, 'config', 'config_file_extension_allowed', 'txt\r\npng\r\njpe\r\njpeg\r\njpg\r\ngif\r\nbmp\r\nico\r\ntiff\r\ntif\r\nsvg\r\nsvgz\r\nzip\r\nrar\r\nmsi\r\ncab\r\nmp3\r\nqt\r\nmov\r\npdf\r\npsd\r\nai\r\neps\r\nps\r\ndoc\r\nrtf\r\nxls\r\nppt\r\nodt\r\nods', 0),
+(5742, 0, 'config', 'config_file_mime_allowed', 'text/plain\r\nimage/png\r\nimage/jpeg\r\nimage/jpeg\r\nimage/jpeg\r\nimage/gif\r\nimage/bmp\r\nimage/vnd.microsoft.icon\r\nimage/tiff\r\nimage/tiff\r\nimage/svg+xml\r\nimage/svg+xml\r\napplication/zip\r\napplication/x-rar-compressed\r\napplication/x-msdownload\r\napplication/vnd.ms-cab-compressed\r\naudio/mpeg\r\nvideo/quicktime\r\nvideo/quicktime\r\napplication/pdf\r\nimage/vnd.adobe.photoshop\r\napplication/postscript\r\napplication/postscript\r\napplication/postscript\r\napplication/msword\r\napplication/rtf\r\napplication/vnd.ms-excel\r\napplication/vnd.ms-powerpoint\r\napplication/vnd.oasis.opendocument.text\r\napplication/vnd.oasis.opendocument.spreadsheet', 0),
+(5749, 0, 'config', 'config_error_filename', 'error.txt', 0),
+(5748, 0, 'config', 'config_error_log', '1', 0),
+(5747, 0, 'config', 'config_error_display', '1', 0),
+(5746, 0, 'config', 'config_compression', '0', 0),
+(5745, 0, 'config', 'config_encryption', 'aac9c3a3fec6f7d828437f7721600389', 0),
+(5744, 0, 'config', 'config_password', '1', 0),
+(5743, 0, 'config', 'config_maintenance', '0', 0),
+(5725, 0, 'config', 'config_smtp_host', '', 0),
+(5724, 0, 'config', 'config_mail_parameter', '', 0),
+(5723, 0, 'config', 'config_mail_protocol', 'mail', 0),
+(5722, 0, 'config', 'config_ftp_status', '0', 0),
+(5721, 0, 'config', 'config_ftp_root', '', 0),
+(5720, 0, 'config', 'config_ftp_password', '', 0),
+(5719, 0, 'config', 'config_ftp_username', '', 0),
+(5718, 0, 'config', 'config_ftp_port', '21', 0),
+(5717, 0, 'config', 'config_ftp_host', 'localhost', 0),
+(5716, 0, 'config', 'config_image_cart_height', '47', 0),
+(5715, 0, 'config', 'config_image_cart_width', '47', 0),
+(5714, 0, 'config', 'config_image_wishlist_height', '47', 0),
+(5713, 0, 'config', 'config_image_wishlist_width', '47', 0),
+(5712, 0, 'config', 'config_image_compare_height', '90', 0),
+(5711, 0, 'config', 'config_image_compare_width', '90', 0),
+(5710, 0, 'config', 'config_image_related_height', '80', 0),
+(5709, 0, 'config', 'config_image_related_width', '80', 0),
+(5708, 0, 'config', 'config_image_additional_height', '101', 0),
+(5707, 0, 'config', 'config_image_additional_width', '101', 0),
+(5706, 0, 'config', 'config_image_product_height', '80', 0),
+(5705, 0, 'config', 'config_image_product_width', '80', 0),
+(5704, 0, 'config', 'config_image_popup_height', '500', 0),
+(5703, 0, 'config', 'config_image_popup_width', '500', 0),
+(5702, 0, 'config', 'config_image_thumb_height', '351', 0),
+(5701, 0, 'config', 'config_image_thumb_width', '351', 0),
+(5700, 0, 'config', 'config_image_category_height', '80', 0),
+(5699, 0, 'config', 'config_image_category_width', '80', 0),
+(5698, 0, 'config', 'config_icon', 'data/cart.png', 0),
+(5697, 0, 'config', 'config_logo', 'data/logo-demo5.png', 0),
+(5696, 0, 'config', 'config_return_status_id', '2', 0),
+(5695, 0, 'config', 'config_return_id', '0', 0),
+(5694, 0, 'config', 'config_commission', '5', 0),
+(5693, 0, 'config', 'config_affiliate_id', '4', 0),
+(5692, 0, 'config', 'config_stock_status_id', '5', 0),
+(5691, 0, 'config', 'config_stock_checkout', '0', 0),
+(5690, 0, 'config', 'config_stock_warning', '0', 0),
+(5689, 0, 'config', 'config_stock_display', '0', 0),
+(5687, 0, 'config', 'config_order_status_id', '1', 0),
+(5688, 0, 'config', 'config_complete_status_id', '5', 0),
+(5686, 0, 'config', 'config_invoice_prefix', 'INV-2013-00', 0),
+(5685, 0, 'config', 'config_order_edit', '100', 0),
+(5684, 0, 'config', 'config_checkout_id', '5', 0),
+(5683, 0, 'config', 'config_guest_checkout', '1', 0),
+(5682, 0, 'config', 'config_cart_weight', '1', 0),
+(5681, 0, 'config', 'config_account_id', '3', 0),
+(5680, 0, 'config', 'config_customer_price', '0', 0),
+(5679, 0, 'config', 'config_customer_group_display', 'a:1:{i:0;s:1:"1";}', 1),
+(5678, 0, 'config', 'config_customer_group_id', '1', 0),
+(5677, 0, 'config', 'config_customer_online', '0', 0),
+(5676, 0, 'config', 'config_tax_customer', 'shipping', 0),
+(5675, 0, 'config', 'config_tax_default', 'shipping', 0),
+(5674, 0, 'config', 'config_vat', '0', 0),
+(5673, 0, 'config', 'config_tax', '1', 0),
+(5672, 0, 'config', 'config_voucher_max', '1000', 0),
+(5671, 0, 'config', 'config_voucher_min', '1', 0),
+(5670, 0, 'config', 'config_download', '1', 0),
+(5669, 0, 'config', 'config_review_status', '1', 0),
+(5668, 0, 'config', 'config_product_count', '1', 0),
+(5667, 0, 'config', 'config_admin_limit', '20', 0),
+(5666, 0, 'config', 'config_catalog_limit', '15', 0),
+(5665, 0, 'config', 'config_weight_class_id', '1', 0),
+(5664, 0, 'config', 'config_length_class_id', '1', 0),
+(5663, 0, 'config', 'config_currency_auto', '1', 0),
+(5662, 0, 'config', 'config_currency', 'USD', 0),
+(5661, 0, 'config', 'config_admin_language', 'en', 0),
+(5660, 0, 'config', 'config_language', 'en', 0),
+(5659, 0, 'config', 'config_zone_id', '3563', 0),
+(5658, 0, 'config', 'config_country_id', '222', 0),
+(5657, 0, 'config', 'config_layout_id', '4', 0),
+(5656, 0, 'config', 'config_template', 'rgen-opencart', 0),
+(5655, 0, 'config', 'config_meta_description', 'My Store', 0),
+(5653, 0, 'config', 'config_fax', '', 0),
+(5654, 0, 'config', 'config_title', 'Your Store', 0),
+(5652, 0, 'config', 'config_telephone', '123456789', 0),
+(6257, 0, 'rgen_theme', 'rgen_theme_version', 'v3.08', 0),
+(6261, 0, 'rgen_custom', 'rgen_custom_module', 'a:15:{i:0;a:23:{s:6:"mod_id";s:19:"rgen_custom_module1";s:9:"layout_id";s:1:"1";s:8:"category";N;s:8:"products";N;s:6:"brands";N;s:4:"info";N;s:10:"cat_status";N;s:10:"prd_status";N;s:12:"brand_status";N;s:11:"info_status";N;s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";s:4:"data";s:3:"new";}i:1;a:23:{s:6:"mod_id";s:19:"rgen_custom_module2";s:9:"layout_id";s:1:"1";s:8:"category";N;s:8:"products";N;s:6:"brands";N;s:4:"info";N;s:10:"cat_status";N;s:10:"prd_status";N;s:12:"brand_status";N;s:11:"info_status";N;s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";s:8:"position";s:11:"column_left";s:6:"status";s:1:"0";s:10:"sort_order";s:1:"2";s:4:"data";s:3:"new";}i:2;a:23:{s:6:"mod_id";s:19:"rgen_custom_module3";s:9:"layout_id";s:5:"99999";s:8:"category";N;s:8:"products";N;s:6:"brands";N;s:4:"info";N;s:10:"cat_status";N;s:10:"prd_status";N;s:12:"brand_status";N;s:11:"info_status";N;s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";s:8:"position";s:12:"footer_cards";s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";s:4:"data";s:3:"new";}i:3;a:23:{s:6:"mod_id";s:19:"rgen_custom_module4";s:9:"layout_id";s:1:"2";s:8:"category";N;s:8:"products";a:1:{i:0;s:2:"42";}s:6:"brands";N;s:4:"info";N;s:10:"cat_status";N;s:10:"prd_status";s:4:"selp";s:12:"brand_status";N;s:11:"info_status";N;s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";s:8:"position";s:12:"pd_below_img";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"0";s:4:"data";s:3:"new";}i:4;a:23:{s:6:"mod_id";s:19:"rgen_custom_module5";s:9:"layout_id";s:1:"2";s:8:"category";N;s:8:"products";N;s:6:"brands";N;s:4:"info";N;s:10:"cat_status";N;s:10:"prd_status";s:4:"allp";s:12:"brand_status";N;s:11:"info_status";N;s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"0";s:4:"data";s:3:"new";}i:5;a:23:{s:6:"mod_id";s:19:"rgen_custom_module6";s:9:"layout_id";s:1:"2";s:8:"category";N;s:8:"products";N;s:6:"brands";N;s:4:"info";N;s:10:"cat_status";N;s:10:"prd_status";s:4:"allp";s:12:"brand_status";N;s:11:"info_status";N;s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"2";s:4:"data";s:3:"new";}i:6;a:23:{s:6:"mod_id";s:19:"rgen_custom_module7";s:9:"layout_id";s:1:"2";s:8:"category";N;s:8:"products";a:2:{i:0;s:2:"42";i:1;s:2:"30";}s:6:"brands";N;s:4:"info";N;s:10:"cat_status";N;s:10:"prd_status";s:4:"selp";s:12:"brand_status";N;s:11:"info_status";N;s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";s:8:"position";s:5:"pd_tb";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"0";s:4:"data";s:3:"new";}i:7;a:23:{s:6:"mod_id";s:19:"rgen_custom_module8";s:9:"layout_id";s:1:"2";s:8:"category";N;s:8:"products";N;s:6:"brands";N;s:4:"info";N;s:10:"cat_status";N;s:10:"prd_status";s:4:"allp";s:12:"brand_status";N;s:11:"info_status";N;s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";s:8:"position";s:5:"pd_tb";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";s:4:"data";s:3:"new";}i:8;a:23:{s:6:"mod_id";s:19:"rgen_custom_module9";s:9:"layout_id";s:1:"2";s:8:"category";N;s:8:"products";a:2:{i:0;s:2:"42";i:1;s:2:"30";}s:6:"brands";N;s:4:"info";N;s:10:"cat_status";N;s:10:"prd_status";s:4:"selp";s:12:"brand_status";N;s:11:"info_status";N;s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"0";s:4:"data";s:3:"new";}i:9;a:23:{s:6:"mod_id";s:20:"rgen_custom_module10";s:9:"layout_id";s:1:"3";s:8:"category";a:1:{i:0;s:2:"20";}s:8:"products";N;s:6:"brands";N;s:4:"info";N;s:10:"cat_status";s:4:"selc";s:10:"prd_status";N;s:12:"brand_status";N;s:11:"info_status";N;s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"0";s:4:"data";s:3:"new";}i:10;a:23:{s:6:"mod_id";s:20:"rgen_custom_module11";s:9:"layout_id";s:1:"3";s:8:"category";N;s:8:"products";N;s:6:"brands";N;s:4:"info";N;s:10:"cat_status";s:4:"allc";s:10:"prd_status";N;s:12:"brand_status";N;s:11:"info_status";N;s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"2";s:4:"data";s:3:"new";}i:11;a:23:{s:6:"mod_id";s:20:"rgen_custom_module12";s:9:"layout_id";s:5:"99999";s:8:"category";N;s:8:"products";N;s:6:"brands";N;s:4:"info";N;s:10:"cat_status";N;s:10:"prd_status";N;s:12:"brand_status";N;s:11:"info_status";N;s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";s:8:"position";s:7:"s_right";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"0";s:4:"data";s:3:"new";}i:12;a:23:{s:6:"mod_id";s:20:"rgen_custom_module13";s:9:"layout_id";s:5:"99999";s:8:"category";N;s:8:"products";N;s:6:"brands";N;s:4:"info";N;s:10:"cat_status";N;s:10:"prd_status";N;s:12:"brand_status";N;s:11:"info_status";N;s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";s:8:"position";s:7:"s_right";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";s:4:"data";s:3:"new";}i:13;a:23:{s:6:"mod_id";s:20:"rgen_custom_module14";s:9:"layout_id";s:1:"1";s:8:"category";N;s:8:"products";N;s:6:"brands";N;s:4:"info";N;s:10:"cat_status";N;s:10:"prd_status";N;s:12:"brand_status";N;s:11:"info_status";N;s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"4";s:4:"data";s:3:"new";}i:14;a:23:{s:6:"mod_id";s:20:"rgen_custom_module15";s:9:"layout_id";s:1:"1";s:8:"category";N;s:8:"products";N;s:6:"brands";N;s:4:"info";N;s:10:"cat_status";N;s:10:"prd_status";N;s:12:"brand_status";N;s:11:"info_status";N;s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"2";s:4:"data";s:3:"new";}}', 1),
+(6258, 0, 'rgen_customproducts', 'rgen_customproducts_module', 'a:8:{i:0;a:20:{s:10:"setting_id";s:23:"rgen_customprd_setting1";s:6:"mod_id";s:15:"rgen_customprd1";s:8:"modStyle";s:6:"normal";s:8:"tabStyle";s:0:"";s:8:"tabAlign";s:1:"l";s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";s:5:"img_w";s:3:"194";s:5:"img_h";s:3:"194";s:9:"layout_id";s:1:"1";s:8:"position";s:11:"content_top";s:6:"status";s:1:"0";s:10:"sort_order";s:1:"0";}i:1;a:20:{s:10:"setting_id";s:23:"rgen_customprd_setting2";s:6:"mod_id";s:15:"rgen_customprd2";s:8:"modStyle";s:3:"tab";s:8:"tabStyle";s:1:"5";s:8:"tabAlign";s:1:"l";s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";s:5:"img_w";s:3:"194";s:5:"img_h";s:3:"194";s:9:"layout_id";s:1:"1";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}i:2;a:20:{s:10:"setting_id";s:23:"rgen_customprd_setting3";s:6:"mod_id";s:15:"rgen_customprd3";s:8:"modStyle";s:6:"normal";s:8:"tabStyle";s:0:"";s:8:"tabAlign";s:1:"l";s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";s:5:"img_w";s:3:"194";s:5:"img_h";s:3:"194";s:9:"layout_id";s:1:"1";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"3";}i:3;a:21:{s:10:"setting_id";s:23:"rgen_customprd_setting4";s:6:"mod_id";s:15:"rgen_customprd5";s:8:"modStyle";s:6:"normal";s:8:"tabStyle";s:0:"";s:8:"tabAlign";s:1:"l";s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";s:5:"img_w";s:3:"101";s:5:"img_h";s:3:"101";s:9:"layout_id";s:1:"2";s:8:"position";s:11:"column_left";s:10:"prd_status";s:4:"allp";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"3";}i:4;a:22:{s:10:"setting_id";s:23:"rgen_customprd_setting5";s:6:"mod_id";s:15:"rgen_customprd3";s:8:"modStyle";s:6:"normal";s:8:"tabStyle";s:0:"";s:8:"tabAlign";s:1:"l";s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";s:5:"img_w";s:3:"194";s:5:"img_h";s:3:"194";s:9:"layout_id";s:1:"2";s:8:"position";s:11:"column_left";s:10:"prd_status";s:4:"selp";s:8:"products";a:1:{i:0;s:2:"42";}s:6:"status";s:1:"1";s:10:"sort_order";s:1:"4";}i:5;a:21:{s:10:"setting_id";s:23:"rgen_customprd_setting6";s:6:"mod_id";s:15:"rgen_customprd7";s:8:"modStyle";s:6:"normal";s:8:"tabStyle";s:0:"";s:8:"tabAlign";s:1:"l";s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";s:5:"img_w";s:3:"100";s:5:"img_h";s:3:"100";s:9:"layout_id";s:1:"3";s:8:"position";s:11:"column_left";s:10:"cat_status";s:4:"allc";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}i:6;a:21:{s:10:"setting_id";s:23:"rgen_customprd_setting7";s:6:"mod_id";s:15:"rgen_customprd8";s:8:"modStyle";s:6:"normal";s:8:"tabStyle";s:0:"";s:8:"tabAlign";s:1:"l";s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";s:5:"img_w";s:3:"101";s:5:"img_h";s:3:"101";s:9:"layout_id";s:1:"3";s:8:"position";s:11:"column_left";s:10:"cat_status";s:4:"allc";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"3";}i:7;a:20:{s:10:"setting_id";s:23:"rgen_customprd_setting8";s:6:"mod_id";s:15:"rgen_customprd9";s:8:"modStyle";s:6:"normal";s:8:"tabStyle";s:0:"";s:8:"tabAlign";s:1:"l";s:5:"fullB";s:1:"n";s:11:"fullB_class";s:0:"";s:13:"fullB_bgcolor";s:0:"";s:11:"fullB_bgimg";s:0:"";s:18:"fullB_bgAttachment";s:0:"";s:14:"fullB_bgrepeat";s:0:"";s:16:"fullB_bgposition";s:0:"";s:11:"fullB_bgps1";s:0:"";s:11:"fullB_bgps2";s:0:"";s:5:"img_w";s:3:"194";s:5:"img_h";s:3:"194";s:9:"layout_id";s:1:"1";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}}', 1),
+(6266, 0, 'rgen_megamenu', 'rgen_megamenu_status', '1', 0),
+(6256, 0, 'rgen_theme', 'RGen_CustomJS', '', 0),
+(6254, 0, 'rgen_theme', 'RGen_CustomCSS', 'body {\r\nbackground: url(image/data/demo05_images/other/body-bg.jpg) no-repeat center top #252525;\r\nbackground-attachment: fixed;\r\n}\r\n.store-home .slideshow { margin-bottom: 10px; }', 0),
+(6255, 0, 'rgen_theme', 'RGen_CustomJS_Status', '0', 0),
+(6253, 0, 'rgen_theme', 'RGen_CustomCSS_Status', '1', 0),
+(6252, 0, 'rgen_theme', 'RGen_CustomCSS_file', 'custom.css', 0),
+(6251, 0, 'rgen_theme', 'RGen_customFile_Status', '0', 0),
+(6250, 0, 'rgen_theme', 'RGen_FooterSocialIcon_hover', '', 0),
+(6249, 0, 'rgen_theme', 'RGen_FooterSocialIcon', '', 0),
+(6248, 0, 'rgen_theme', 'RGen_FooterSocialRing_hover', '', 0),
+(6247, 0, 'rgen_theme', 'RGen_FooterSocialRing', '', 0),
+(6246, 0, 'rgen_theme', 'RGen_FooterSocial_hover', '', 0),
+(6243, 0, 'rgen_theme', 'RGen_FooterBg', '', 0),
+(6244, 0, 'rgen_theme', 'RGen_FooterSocial_bdr', '', 0),
+(6245, 0, 'rgen_theme', 'RGen_FooterSocial', '', 0),
+(6242, 0, 'rgen_theme', 'RGen_contactText', '', 0),
+(6241, 0, 'rgen_theme', 'RGen_contactIcon_color', '', 0),
+(6240, 0, 'rgen_theme', 'RGen_contactIcons', '', 0),
+(6239, 0, 'rgen_theme', 'RGen_FooterLinks_hover', '', 0),
+(6238, 0, 'rgen_theme', 'RGen_FooterLinks', '', 0),
+(6237, 0, 'rgen_theme', 'RGen_FooterText', '', 0),
+(6236, 0, 'rgen_theme', 'RGen_FooterHeader', '', 0),
+(6235, 0, 'rgen_theme', 'RGen_FooterLines', '', 0),
+(6234, 0, 'rgen_theme', 'RGen_FooterWrpBg', '', 0),
+(6233, 0, 'rgen_theme', 'RGen_WriteReviewRating_Text', '', 0),
+(6232, 0, 'rgen_theme', 'RGen_WriteReviewRating_bg', '', 0),
+(6231, 0, 'rgen_theme', 'RGen_WriteReview_label', '', 0),
+(6230, 0, 'rgen_theme', 'RGen_WriteReview_RatingBdr', '', 0),
+(6229, 0, 'rgen_theme', 'RGen_WriteReview_Rating', '', 0),
+(6228, 0, 'rgen_theme', 'RGen_WriteReview', '', 0),
+(6227, 0, 'rgen_theme', 'RGen_TabContentText', '', 0),
+(6226, 0, 'rgen_theme', 'RGen_TabActiveText', '', 0),
+(6225, 0, 'rgen_theme', 'RGen_TabText', '', 0),
+(6224, 0, 'rgen_theme', 'RGen_TabsNormal', '', 0),
+(6223, 0, 'rgen_theme', 'RGen_TabsBg', '', 0),
+(6222, 0, 'rgen_theme', 'RGen_prdCartIcon_hover', '', 0),
+(6221, 0, 'rgen_theme', 'RGen_prdCartIcon', '', 0),
+(6220, 0, 'rgen_theme', 'RGen_prdCartRing_hover', '', 0),
+(6219, 0, 'rgen_theme', 'RGen_prdCartRing', '', 0),
+(6218, 0, 'rgen_theme', 'RGen_prdCartBt_hover', '', 0),
+(6217, 0, 'rgen_theme', 'RGen_prdCartBt', '', 0),
+(6216, 0, 'rgen_theme', 'RGen_prdOptionLabel', '', 0),
+(6215, 0, 'rgen_theme', 'RGen_prdQtyText', '', 0),
+(6214, 0, 'rgen_theme', 'RGen_prdQtyBorder', '', 0),
+(6211, 0, 'rgen_theme', 'RGen_prdPriceTax', '', 0),
+(6212, 0, 'rgen_theme', 'RGen_prdOtherText', '', 0),
+(6213, 0, 'rgen_theme', 'RGen_prdQty', '', 0),
+(6210, 0, 'rgen_theme', 'RGen_prdPriceNew', '', 0),
+(6208, 0, 'rgen_theme', 'RGen_prdPriceRing', '', 0),
+(6209, 0, 'rgen_theme', 'RGen_prdPriceOld', '', 0),
+(6207, 0, 'rgen_theme', 'RGen_prdPriceBg', '', 0),
+(6206, 0, 'rgen_theme', 'RGen_prdZoomIcon', '', 0),
+(6205, 0, 'rgen_theme', 'RGen_prdZoomText', '', 0),
+(6204, 0, 'rgen_theme', 'RGen_prdDiscount_border', '', 0),
+(6203, 0, 'rgen_theme', 'RGen_prdImageActive', '', 0),
+(6202, 0, 'rgen_theme', 'RGen_prdImageBg', '', 0),
+(6201, 0, 'rgen_theme', 'RGen_prd4_carttxt_hover', '', 0),
+(6200, 0, 'rgen_theme', 'RGen_prd4_carttxt', '', 0),
+(6199, 0, 'rgen_theme', 'RGen_prd4_cartbg_hover', '', 0),
+(6198, 0, 'rgen_theme', 'RGen_prd4_btnicons_hover', '', 0),
+(6197, 0, 'rgen_theme', 'RGen_prd4_btnicons', '', 0),
+(6196, 0, 'rgen_theme', 'RGen_prd4_btnbg_hover', '', 0),
+(6195, 0, 'rgen_theme', 'RGen_prd4_btnbg', '', 0),
+(6194, 0, 'rgen_theme', 'RGen_prd4_btnbdr', '', 0),
+(6193, 0, 'rgen_theme', 'RGen_prd4_priceold', '', 0),
+(6192, 0, 'rgen_theme', 'RGen_prd4_price', '', 0),
+(6191, 0, 'rgen_theme', 'RGen_prd4_name', '', 0),
+(6189, 0, 'rgen_theme', 'RGen_prd4_bdr', '', 0),
+(6190, 0, 'rgen_theme', 'RGen_prd4_bdr_hover', '', 0),
+(6188, 0, 'rgen_theme', 'RGen_prd4_bg', '', 0),
+(6187, 0, 'rgen_theme', 'RGen_prd3_prdbtIcon_hover', '', 0),
+(6186, 0, 'rgen_theme', 'RGen_prd3_prdbtIcon', '', 0),
+(6185, 0, 'rgen_theme', 'RGen_prd3_prdbtBdr_hover', '', 0),
+(6184, 0, 'rgen_theme', 'RGen_prd3_prdbtBdr', '', 0),
+(6183, 0, 'rgen_theme', 'RGen_prd3_prdbtBg_hover', '', 0),
+(6182, 0, 'rgen_theme', 'RGen_prd3_prdbtBg', '', 0),
+(6181, 0, 'rgen_theme', 'RGen_prd3_cartText_hover', '', 0),
+(6180, 0, 'rgen_theme', 'RGen_prd3_cartText', '', 0),
+(6179, 0, 'rgen_theme', 'RGen_prd3_cartBg_hover', '', 0),
+(6177, 0, 'rgen_theme', 'RGen_prd3_rating', '', 0),
+(6178, 0, 'rgen_theme', 'RGen_prd3_cartBg', '', 0),
+(6176, 0, 'rgen_theme', 'RGen_prd3_priceNew', '', 0),
+(6175, 0, 'rgen_theme', 'RGen_prd3_priceOld', '', 0),
+(6174, 0, 'rgen_theme', 'RGen_prd3_name_hover', '', 0),
+(6173, 0, 'rgen_theme', 'RGen_prd3_name', '', 0),
+(6172, 0, 'rgen_theme', 'RGen_prd3_bdr_w_hover', '', 0),
+(6171, 0, 'rgen_theme', 'RGen_prd3_bdr_w', '', 0),
+(6170, 0, 'rgen_theme', 'RGen_prd3_bdr_hover', '', 0),
+(6169, 0, 'rgen_theme', 'RGen_prd3_bdr', '', 0),
+(6167, 0, 'rgen_theme', 'RGen_prd3_bg', '', 0),
+(6168, 0, 'rgen_theme', 'RGen_prd3_bg_hover', '', 0),
+(6166, 0, 'rgen_theme', 'RGen_prd2_cartbt_bdr_hover', '', 0),
+(6165, 0, 'rgen_theme', 'RGen_prd2_cartbt_bdr', '', 0),
+(6164, 0, 'rgen_theme', 'RGen_prd2_cartbt_hover', '', 0),
+(6163, 0, 'rgen_theme', 'RGen_prd2_cartbt', '', 0),
+(6162, 0, 'rgen_theme', 'RGen_prd2_cartbt_bg_hover', '', 0),
+(6161, 0, 'rgen_theme', 'RGen_prd2_cartbt_bg', '', 0),
+(6160, 0, 'rgen_theme', 'RGen_prd2_priceTax', '', 0),
+(6159, 0, 'rgen_theme', 'RGen_prd2_priceNew', '', 0),
+(6158, 0, 'rgen_theme', 'RGen_prd2_priceOld', '', 0),
+(6157, 0, 'rgen_theme', 'RGen_prd2_link_hover', '', 0),
+(6156, 0, 'rgen_theme', 'RGen_prd2_link', '', 0),
+(6155, 0, 'rgen_theme', 'RGen_prd2_name', '', 0),
+(6154, 0, 'rgen_theme', 'RGen_prd2_image', '', 0),
+(6153, 0, 'rgen_theme', 'RGen_cartBtIcon_hover', '', 0),
+(6152, 0, 'rgen_theme', 'RGen_cartBtIcon', '', 0),
+(6151, 0, 'rgen_theme', 'RGen_cartBtRing_hover', '', 0),
+(6150, 0, 'rgen_theme', 'RGen_cartBtRing', '', 0),
+(6149, 0, 'rgen_theme', 'RGen_cartBt_hover', '', 0),
+(6148, 0, 'rgen_theme', 'RGen_cartBt', '', 0),
+(6147, 0, 'rgen_theme', 'RGen_PriceRing', '', 0),
+(6146, 0, 'rgen_theme', 'RGen_Price', '', 0),
+(6145, 0, 'rgen_theme', 'RGen_OldPrice', '', 0),
+(6144, 0, 'rgen_theme', 'RGen_PriceBg', '', 0),
+(6143, 0, 'rgen_theme', 'RGen_prdText', '', 0),
+(6142, 0, 'rgen_theme', 'RGen_prdLinks_hover', '', 0),
+(6141, 0, 'rgen_theme', 'RGen_prdLinks', '', 0),
+(6140, 0, 'rgen_theme', 'RGen_prdName', '', 0),
+(6139, 0, 'rgen_theme', 'RGen_prdBorder', '', 0),
+(6138, 0, 'rgen_theme', 'RGen_prdHover_Bg', '', 0),
+(6137, 0, 'rgen_theme', 'RGen_prdBack', '', 0),
+(6136, 0, 'rgen_theme', 'RGen_RefinCateFontColour', '', 0),
+(6135, 0, 'rgen_theme', 'RGen_RefinCateBg', '', 0),
+(6134, 0, 'rgen_theme', 'RGen_RefinCateHdFontColor', '', 0),
+(6133, 0, 'rgen_theme', 'RGen_RefinCateHdBg', '', 0),
+(6132, 0, 'rgen_theme', 'RGen_featuredCrtBtIcon_hover', '', 0),
+(6131, 0, 'rgen_theme', 'RGen_featuredCrtBtIcon', '', 0),
+(6130, 0, 'rgen_theme', 'RGen_featuredCrtBtRing_hover', '', 0),
+(6129, 0, 'rgen_theme', 'RGen_featuredCrtBtRing', '', 0),
+(6128, 0, 'rgen_theme', 'RGen_featuredCrtBt_hover', '', 0),
+(6127, 0, 'rgen_theme', 'RGen_featuredCrtBt', '', 0),
+(6126, 0, 'rgen_theme', 'RGen_featuredPriceOld', '', 0),
+(6125, 0, 'rgen_theme', 'RGen_featuredPrice', '', 0),
+(6124, 0, 'rgen_theme', 'RGen_featuredPriceBg', '', 0),
+(6123, 0, 'rgen_theme', 'RGen_featuredPrdText', '', 0),
+(6122, 0, 'rgen_theme', 'RGen_featuredPrdLines', '', 0),
+(6121, 0, 'rgen_theme', 'RGen_featuredHover_Bg', '', 0),
+(6120, 0, 'rgen_theme', 'RGen_featuredBg', '', 0),
+(6119, 0, 'rgen_theme', 'RGen_featuredArrowIcon_hover', '', 0),
+(6118, 0, 'rgen_theme', 'RGen_featuredArrowIcon', '', 0),
+(6117, 0, 'rgen_theme', 'RGen_featuredArrow_hover', '', 0),
+(6116, 0, 'rgen_theme', 'RGen_featuredArrow', '', 0),
+(6115, 0, 'rgen_theme', 'RGen_featuredTitleFont', '', 0),
+(6114, 0, 'rgen_theme', 'RGen_featuredTitleBg', '', 0),
+(6113, 0, 'rgen_theme', 'RGen_Slideshow_pagerActive', '', 0),
+(6112, 0, 'rgen_theme', 'RGen_Slideshow_pager', '', 0),
+(6111, 0, 'rgen_theme', 'RGen_MiniCartContent_value', '', 0),
+(6110, 0, 'rgen_theme', 'RGen_MiniCartContent_label', '', 0),
+(6109, 0, 'rgen_theme', 'RGen_MiniCartContent_links', '', 0),
+(6108, 0, 'rgen_theme', 'RGen_MiniCartContent_text', '', 0),
+(6107, 0, 'rgen_theme', 'RGen_MiniCartContent_total', '', 0),
+(6106, 0, 'rgen_theme', 'RGen_MiniCartContent_border', '', 0),
+(6105, 0, 'rgen_theme', 'RGen_MiniCartContent_image', '', 0),
+(6104, 0, 'rgen_theme', 'RGen_MiniCartContent', '', 0),
+(6103, 0, 'rgen_theme', 'RGen_MiniCartIcon', '', 0),
+(6102, 0, 'rgen_theme', 'RGen_MiniCartText', '', 0),
+(6101, 0, 'rgen_theme', 'RGen_MiniCart', '', 0),
+(6100, 0, 'rgen_theme', 'RGen_CurLanText_hover', '', 0),
+(6099, 0, 'rgen_theme', 'RGen_CurLanText', '', 0),
+(6098, 0, 'rgen_theme', 'RGen_CurLanDropdown_hover', '', 0),
+(6097, 0, 'rgen_theme', 'RGen_CurLanDropdown', '', 0),
+(6096, 0, 'rgen_theme', 'RGen_CurLanArrow', '', 0),
+(6094, 0, 'rgen_theme', 'RGen_CurLanBg', '', 0),
+(6095, 0, 'rgen_theme', 'RGen_CurLanSelected', '', 0),
+(6093, 0, 'rgen_theme', 'RGen_mob_menuarrow', '', 0),
+(6092, 0, 'rgen_theme', 'RGen_mob_menuarrow_bg', '', 0),
+(6091, 0, 'rgen_theme', 'RGen_mob_submenutext_hover', '', 0),
+(6090, 0, 'rgen_theme', 'RGen_mob_submenu_hover', '', 0),
+(6089, 0, 'rgen_theme', 'RGen_mob_submenutext', '', 0),
+(6087, 0, 'rgen_theme', 'RGen_mob_submenu_separator', '', 0),
+(6088, 0, 'rgen_theme', 'RGen_mob_submenu', '', 0),
+(6086, 0, 'rgen_theme', 'RGen_mob_menutext_hover', '', 0),
+(6085, 0, 'rgen_theme', 'RGen_mob_menulink_hover', '', 0),
+(6084, 0, 'rgen_theme', 'RGen_mob_menutext', '', 0),
+(6083, 0, 'rgen_theme', 'RGen_mob_menulink', '', 0),
+(6082, 0, 'rgen_theme', 'RGen_mob_separator', '', 0),
+(6081, 0, 'rgen_theme', 'RGen_mob_Menuicon', '', 0),
+(6080, 0, 'rgen_theme', 'RGen_mob_Menubar', '', 0),
+(6079, 0, 'rgen_theme', 'RGen_megaMenu_colors', '', 0),
+(6078, 0, 'rgen_theme', 'RGen_homeBtRing', '', 0),
+(6077, 0, 'rgen_theme', 'RGen_homeBtIcon_hover', '', 0),
+(6076, 0, 'rgen_theme', 'RGen_homeBtIcon', '', 0),
+(6075, 0, 'rgen_theme', 'RGen_homeBt_hover', '', 0),
+(6074, 0, 'rgen_theme', 'RGen_homeBt', '', 0),
+(6073, 0, 'rgen_theme', 'RGen_NavSubBorder', '', 0),
+(6072, 0, 'rgen_theme', 'RGen_NavSubFont_hover', '', 0),
+(6071, 0, 'rgen_theme', 'RGen_NavSub_hover', '', 0),
+(6070, 0, 'rgen_theme', 'RGen_NavSubFont', '', 0),
+(6069, 0, 'rgen_theme', 'RGen_NavSub', '', 0),
+(6068, 0, 'rgen_theme', 'RGen_NavSub_bg', '', 0),
+(6067, 0, 'rgen_theme', 'RGen_NavFont_hover', '', 0),
+(6066, 0, 'rgen_theme', 'RGen_Nav_hover', '', 0),
+(6065, 0, 'rgen_theme', 'RGen_NavFont', '', 0),
+(6064, 0, 'rgen_theme', 'RGen_Nav', '', 0),
+(6063, 0, 'rgen_theme', 'RGen_NavMenubar', '', 0),
+(6062, 0, 'rgen_theme', 'RGen_Navbar', '', 0),
+(6060, 0, 'rgen_theme', 'RGen_searchBt_hover', '', 0),
+(6061, 0, 'rgen_theme', 'RGen_searchBtRing_hover', '', 0),
+(6059, 0, 'rgen_theme', 'RGen_searchBtRing', '', 0),
+(6058, 0, 'rgen_theme', 'RGen_searchBt', '', 0),
+(6057, 0, 'rgen_theme', 'RGen_searchBtIcon_hover', '', 0),
+(6056, 0, 'rgen_theme', 'RGen_searchBtIcon', '', 0),
+(6055, 0, 'rgen_theme', 'RGen_searchText', '', 0),
+(6052, 0, 'rgen_theme', 'RGen_Header_Link_hover', '', 0),
+(6054, 0, 'rgen_theme', 'RGen_searchOuterBg', '', 0),
+(6053, 0, 'rgen_theme', 'RGen_searchBg', '', 0),
+(6051, 0, 'rgen_theme', 'RGen_Header_Link', '', 0),
+(6048, 0, 'rgen_theme', 'RGen_Breadcrumb_Arrow', '', 0),
+(6049, 0, 'rgen_theme', 'RGen_Logo', '', 0),
+(6050, 0, 'rgen_theme', 'RGen_Header_text', '', 0),
+(6046, 0, 'rgen_theme', 'RGen_Breadcrumb_Link', '', 0),
+(6047, 0, 'rgen_theme', 'RGen_Breadcrumb_Link_hover', '', 0),
+(6045, 0, 'rgen_theme', 'RGen_headerBgImgPosition', 'left top', 0),
+(6044, 0, 'rgen_theme', 'RGen_headerBgImgRepeat', 'no-repeat', 0),
+(6043, 0, 'rgen_theme', 'RGen_headerBgImg', '', 0),
+(6042, 0, 'rgen_theme', 'RGen_headerBg', '', 0),
+(6041, 0, 'rgen_theme', 'RGen_c6_link_hover', '', 0),
+(6040, 0, 'rgen_theme', 'RGen_c6_linkText', '', 0),
+(6039, 0, 'rgen_theme', 'RGen_c6_dataText', '', 0),
+(6038, 0, 'rgen_theme', 'RGen_c6_hdText', '', 0),
+(6037, 0, 'rgen_theme', 'RGen_c6_linkBdr_hover', '', 0),
+(6036, 0, 'rgen_theme', 'RGen_c6_linkBg_hover', '', 0),
+(6035, 0, 'rgen_theme', 'RGen_c6_linkBg', '', 0),
+(6034, 0, 'rgen_theme', 'RGen_c5_linkText_hover', '', 0),
+(6033, 0, 'rgen_theme', 'RGen_c5_linkText', '', 0),
+(6032, 0, 'rgen_theme', 'RGen_c5_dataText', '', 0),
+(6031, 0, 'rgen_theme', 'RGen_c5_hdText', '', 0),
+(6030, 0, 'rgen_theme', 'RGen_c5_linkBdr_hover', '', 0),
+(6029, 0, 'rgen_theme', 'RGen_c5_dataBdr', '', 0),
+(6028, 0, 'rgen_theme', 'RGen_c5_linkBg_hover', '', 0),
+(6027, 0, 'rgen_theme', 'RGen_c5_linkBg', '', 0),
+(6026, 0, 'rgen_theme', 'RGen_c5_Bg', '', 0),
+(6025, 0, 'rgen_theme', 'RGen_c4_linkText', '', 0),
+(6024, 0, 'rgen_theme', 'RGen_c4_dataText', '', 0),
+(6023, 0, 'rgen_theme', 'RGen_c4_hdText', '', 0),
+(6022, 0, 'rgen_theme', 'RGen_c4_link_hover', '', 0),
+(6021, 0, 'rgen_theme', 'RGen_c4_linkBg', '', 0),
+(6020, 0, 'rgen_theme', 'RGen_c4_hdBg', '', 0),
+(6019, 0, 'rgen_theme', 'RGen_c3_linkText_hover', '', 0),
+(6018, 0, 'rgen_theme', 'RGen_c3_linkText', '', 0),
+(6017, 0, 'rgen_theme', 'RGen_c3_dataText', '', 0),
+(6016, 0, 'rgen_theme', 'RGen_c3_hdText', '', 0),
+(6015, 0, 'rgen_theme', 'RGen_c3_linkBdr_hover', '', 0),
+(6014, 0, 'rgen_theme', 'RGen_c3_dataBdr', '', 0),
+(6013, 0, 'rgen_theme', 'RGen_c3_linkBg_hover', '', 0),
+(6012, 0, 'rgen_theme', 'RGen_c3_linkBg', '', 0),
+(6011, 0, 'rgen_theme', 'RGen_c3_Bg', '', 0),
+(6010, 0, 'rgen_theme', 'RGen_c2_linkText_hover', '', 0),
+(6009, 0, 'rgen_theme', 'RGen_c2_linkText', '', 0),
+(6008, 0, 'rgen_theme', 'RGen_c2_dataText', '', 0),
+(6007, 0, 'rgen_theme', 'RGen_c2_hdText', '', 0),
+(6006, 0, 'rgen_theme', 'RGen_c2_linkBdr_hover', '', 0),
+(6005, 0, 'rgen_theme', 'RGen_c2_linkBdr', '', 0),
+(6004, 0, 'rgen_theme', 'RGen_c2_dataBdr', '', 0),
+(6003, 0, 'rgen_theme', 'RGen_c2_linkBg_hover', '', 0),
+(6002, 0, 'rgen_theme', 'RGen_c2_linkBg', '', 0),
+(6001, 0, 'rgen_theme', 'RGen_c2_dataTextshd', '', 0),
+(6000, 0, 'rgen_theme', 'RGen_c2_hdTextshd', '', 0),
+(5999, 0, 'rgen_theme', 'RGen_c1_linkText', '', 0),
+(5998, 0, 'rgen_theme', 'RGen_c1_dataText', '', 0),
+(5997, 0, 'rgen_theme', 'RGen_c1_hdText', '', 0),
+(5996, 0, 'rgen_theme', 'RGen_c1_linkBg', '', 0),
+(5995, 0, 'rgen_theme', 'RGen_c1_dataBg', '', 0),
+(5994, 0, 'rgen_theme', 'RGen_c1_hdBg', '', 0),
+(5993, 0, 'rgen_theme', 'RGen_globalColourRing', '', 0),
+(5992, 0, 'rgen_theme', 'RGen_ssBg', '', 0),
+(5991, 0, 'rgen_theme', 'RGen_mobPrd', '', 0),
+(5990, 0, 'rgen_theme', 'RGen_custFT_arrow', '', 0),
+(5989, 0, 'rgen_theme', 'RGen_custFT_arrowBg', '', 0),
+(5988, 0, 'rgen_theme', 'RGen_custFT_content', '', 0),
+(5987, 0, 'rgen_theme', 'RGen_custFT_border', '', 0),
+(5986, 0, 'rgen_theme', 'RGen_custFT_hd', '', 0),
+(5985, 0, 'rgen_theme', 'RGen_custFT_bg', '', 0),
+(5984, 0, 'rgen_theme', 'RGen_custTP_arrow', '', 0),
+(5983, 0, 'rgen_theme', 'RGen_custTP_arrowBg', '', 0),
+(5982, 0, 'rgen_theme', 'RGen_custTP_content', '', 0),
+(5981, 0, 'rgen_theme', 'RGen_custTP_border', '', 0),
+(5979, 0, 'rgen_theme', 'RGen_custTP_bg', '', 0),
+(5980, 0, 'rgen_theme', 'RGen_custTP_hd', '', 0),
+(5978, 0, 'rgen_theme', 'RGen_LinkColor_hover', '', 0),
+(5977, 0, 'rgen_theme', 'RGen_LinkColor', '', 0),
+(5976, 0, 'rgen_theme', 'RGen_LinkBtFontColor_hover', '', 0),
+(5975, 0, 'rgen_theme', 'RGen_LinkBtColor_hover', '', 0),
+(5974, 0, 'rgen_theme', 'RGen_LinkBtFontColor', '', 0),
+(5973, 0, 'rgen_theme', 'RGen_LinkBtColor', '', 0),
+(5972, 0, 'rgen_theme', 'RGen_FormBorders', '', 0),
+(5971, 0, 'rgen_theme', 'RGen_FormLabel', '', 0),
+(5970, 0, 'rgen_theme', 'RGen_FormHeaders', '', 0),
+(5969, 0, 'rgen_theme', 'RGen_TextBoxText', '', 0),
+(5968, 0, 'rgen_theme', 'RGen_TextBoxBorder', '', 0),
+(5967, 0, 'rgen_theme', 'RGen_TextBox', '', 0),
+(5966, 0, 'rgen_theme', 'RGen_btFontColor1_hover', '', 0),
+(5965, 0, 'rgen_theme', 'RGen_btColor1_hover', '', 0),
+(5964, 0, 'rgen_theme', 'RGen_btFontColor1', '', 0),
+(5963, 0, 'rgen_theme', 'RGen_btColor1', '', 0),
+(5961, 0, 'rgen_theme', 'RGen_btColor_hover', '', 0),
+(5962, 0, 'rgen_theme', 'RGen_btFontColor_hover', '', 0),
+(5959, 0, 'rgen_theme', 'RGen_btColor', '', 0),
+(5960, 0, 'rgen_theme', 'RGen_btFontColor', '', 0),
+(5958, 0, 'rgen_theme', 'RGen_tableListBorder_bottom', '', 0),
+(5957, 0, 'rgen_theme', 'RGen_tableListBorder_right', '', 0),
+(5956, 0, 'rgen_theme', 'RGen_tableListFont', '', 0),
+(5954, 0, 'rgen_theme', 'RGen_tableListHeader', '', 0),
+(5955, 0, 'rgen_theme', 'RGen_tableListHeaderFont', '', 0),
+(5953, 0, 'rgen_theme', 'RGen_arrowBgRing_hover', '', 0),
+(5952, 0, 'rgen_theme', 'RGen_arrowBgRing', '', 0),
+(5951, 0, 'rgen_theme', 'RGen_arrow_hover', '', 0),
+(5950, 0, 'rgen_theme', 'RGen_arrow', '', 0),
+(5949, 0, 'rgen_theme', 'RGen_arrowBg_hover', '', 0),
+(5948, 0, 'rgen_theme', 'RGen_arrowBg', '', 0),
+(5946, 0, 'rgen_theme', 'RGen_scrollTop', '', 0),
+(5947, 0, 'rgen_theme', 'RGen_scrollTop_arrow', '', 0),
+(5945, 0, 'rgen_theme', 'RGen_fontColor', '', 0),
+(5944, 0, 'rgen_theme', 'RGen_Header', '', 0),
+(5943, 0, 'rgen_theme', 'RGen_globalLines', '', 0),
+(5942, 0, 'rgen_theme', 'RGen_ImageBox', '', 0),
+(5941, 0, 'rgen_theme', 'RGen_globalColour', '', 0),
+(5937, 0, 'rgen_theme', 'RGen_bodyBgImgPosition', 'left top', 0),
+(5938, 0, 'rgen_theme', 'RGen_bodyBgAttachment', 'inherit', 0),
+(5940, 0, 'rgen_theme', 'RGen_pageShadow', '', 0),
+(5939, 0, 'rgen_theme', 'RGen_pageBg', '', 0),
+(5936, 0, 'rgen_theme', 'RGen_bodyBgImgRepeat', 'no-repeat', 0),
+(5934, 0, 'rgen_theme', 'RGen_bodyBg', '', 0),
+(5935, 0, 'rgen_theme', 'RGen_bodyBgImg', '', 0),
+(5932, 0, 'rgen_theme', 'RGen_theme_option', '1', 0),
+(5933, 0, 'rgen_theme', 'RGen_theme', '0', 0),
+(5931, 0, 'rgen_theme', 'RGen_theme_optionStatus', '1', 0),
+(5929, 0, 'rgen_theme', 'FT_fb_Title', '', 0),
+(5930, 0, 'rgen_theme', 'htmlData_FT_fb_code', '', 0),
+(5928, 0, 'rgen_theme', 'FT_twitter_linkcolor', '', 0),
+(5927, 0, 'rgen_theme', 'FT_twitter_widgetid', '', 0),
+(5926, 0, 'rgen_theme', 'FT_twitter_User', '', 0),
+(5925, 0, 'rgen_theme', 'FT_twitter_Title', '', 0),
+(5922, 0, 'rgen_theme', 'RGen_FT_fb_Status', '0', 0),
+(5924, 0, 'rgen_theme', 'FT_about_Text', '', 0),
+(5923, 0, 'rgen_theme', 'FT_about_Title', '', 0),
+(5921, 0, 'rgen_theme', 'RGen_FT_twitter_Status', '0', 0),
+(5920, 0, 'rgen_theme', 'RGen_FT_about_Status', '0', 0),
+(5919, 0, 'rgen_theme', 'RGen_FT_Status', '0', 0),
+(5918, 0, 'rgen_theme', 'FT_Contact_email', '', 0),
+(5917, 0, 'rgen_theme', 'FT_Contact_emailStatus', '1', 0),
+(5916, 0, 'rgen_theme', 'FT_Contact_fax1', '', 0),
+(5915, 0, 'rgen_theme', 'FT_Contact_fax', '', 0),
+(5914, 0, 'rgen_theme', 'FT_Contact_faxStatus', '1', 0),
+(5913, 0, 'rgen_theme', 'FT_Contact_ph1', '', 0),
+(5912, 0, 'rgen_theme', 'FT_Contact_ph', '', 0),
+(5911, 0, 'rgen_theme', 'FT_Contact_phStatus', '1', 0),
+(5910, 0, 'rgen_theme', 'FT_Contact_status', '1', 0),
+(5909, 0, 'rgen_theme', 'socialLink_addThis_Status', '0', 0),
+(5908, 0, 'rgen_theme', 'socialLink_mailTo_Status', '0', 0),
+(5907, 0, 'rgen_theme', 'socialLink_vimeo', '', 0),
+(5906, 0, 'rgen_theme', 'socialLink_vimeo_Status', '1', 0),
+(5905, 0, 'rgen_theme', 'socialLink_linkedin', '', 0),
+(5902, 0, 'rgen_theme', 'socialLink_insta_Status', '1', 0),
+(5903, 0, 'rgen_theme', 'socialLink_insta', '', 0),
+(5904, 0, 'rgen_theme', 'socialLink_linkedin_Status', '1', 0),
+(5901, 0, 'rgen_theme', 'socialLink_thumblr', '', 0),
+(5900, 0, 'rgen_theme', 'socialLink_thumblr_Status', '1', 0),
+(5899, 0, 'rgen_theme', 'socialLink_yahoo', '', 0),
+(5898, 0, 'rgen_theme', 'socialLink_yahoo_Status', '1', 0),
+(5897, 0, 'rgen_theme', 'socialLink_pintrest', '', 0),
+(5896, 0, 'rgen_theme', 'socialLink_pintrest_Status', '1', 0),
+(5895, 0, 'rgen_theme', 'socialLink_flickr', '', 0),
+(5894, 0, 'rgen_theme', 'socialLink_flickr_Status', '1', 0),
+(5893, 0, 'rgen_theme', 'socialLink_google', '', 0),
+(5890, 0, 'rgen_theme', 'socialLink_youtube_Status', '1', 0),
+(5892, 0, 'rgen_theme', 'socialLink_google_Status', '1', 0),
+(5891, 0, 'rgen_theme', 'socialLink_youtube', '', 0),
+(5889, 0, 'rgen_theme', 'socialLink_twitter', '', 0),
+(5888, 0, 'rgen_theme', 'socialLink_twitter_Status', '1', 0),
+(5887, 0, 'rgen_theme', 'socialLink_fb', '', 0),
+(5886, 0, 'rgen_theme', 'socialLink_fb_Status', '1', 0),
+(5885, 0, 'rgen_theme', 'RGen_slideshow_pauseOnHover', 'true', 0),
+(5884, 0, 'rgen_theme', 'RGen_slideshow_controlNav', 'true', 0),
+(5882, 0, 'rgen_theme', 'RGen_slideshow_startSlide', '', 0),
+(5883, 0, 'rgen_theme', 'RGen_slideshow_directionNav', 'true', 0),
+(5881, 0, 'rgen_theme', 'RGen_slideshow_pauseTime', '9000', 0),
+(5880, 0, 'rgen_theme', 'RGen_slideshow_animSpeed', '', 0),
+(5879, 0, 'rgen_theme', 'RGen_slideshow_Effect', '--', 0),
+(5878, 0, 'rgen_theme', 'RGen_cap', 'c2', 0),
+(5877, 0, 'rgen_theme', 'RGen_capStatus', '1', 0),
+(5876, 0, 'rgen_theme', 'RGen_bannerPosition', 'none', 0),
+(5875, 0, 'rgen_theme', 'RGen_SlideShow_Type', '--', 0),
+(5874, 0, 'rgen_theme', 'RGen_SlideShow_Mod', '--', 0),
+(5873, 0, 'rgen_theme', 'RGen_SlideShow_Mod_status', '0', 0),
+(5869, 0, 'rgen_theme', 'RGen_menu_item4', '', 0),
+(5858, 0, 'rgen_theme', 'RGen_subMenu1_item9', '', 0),
+(5859, 0, 'rgen_theme', 'RGen_subMenu1_item_url9', '', 0),
+(5860, 0, 'rgen_theme', 'RGen_subMenu1_item10', '', 0),
+(5861, 0, 'rgen_theme', 'RGen_subMenu1_item_url10', '', 0);
+INSERT INTO `setting` (`setting_id`, `store_id`, `group`, `key`, `value`, `serialized`) VALUES
+(5862, 0, 'rgen_theme', 'RGen_module', 'a:1:{i:1;a:4:{s:4:"Menu";a:3:{i:0;a:3:{s:4:"name";s:0:"";s:3:"url";s:0:"";s:11:"ddMenuItems";a:11:{i:0;a:2:{s:4:"name";s:0:"";s:3:"url";s:0:"";}i:1;a:2:{s:4:"name";s:0:"";s:3:"url";s:0:"";}i:2;a:2:{s:4:"name";s:0:"";s:3:"url";s:0:"";}i:3;a:2:{s:4:"name";s:0:"";s:3:"url";s:0:"";}i:4;a:2:{s:4:"name";s:0:"";s:3:"url";s:0:"";}i:5;a:2:{s:4:"name";s:0:"";s:3:"url";s:0:"";}i:6;a:2:{s:4:"name";s:0:"";s:3:"url";s:0:"";}i:7;a:2:{s:4:"name";s:0:"";s:3:"url";s:0:"";}i:8;a:2:{s:4:"name";s:0:"";s:3:"url";s:0:"";}i:9;a:2:{s:4:"name";s:0:"";s:3:"url";s:0:"";}i:10;a:2:{s:4:"name";s:0:"";s:3:"url";s:0:"";}}}i:1;a:1:{s:15:"RGen_menu_items";a:7:{i:0;a:3:{s:4:"name";s:0:"";s:3:"url";s:0:"";s:10:"sort_order";s:0:"";}i:1;a:3:{s:4:"name";s:0:"";s:3:"url";s:0:"";s:10:"sort_order";s:0:"";}i:2;a:3:{s:4:"name";s:0:"";s:3:"url";s:0:"";s:10:"sort_order";s:0:"";}i:3;a:3:{s:4:"name";s:0:"";s:3:"url";s:0:"";s:10:"sort_order";s:0:"";}i:4;a:3:{s:4:"name";s:0:"";s:3:"url";s:0:"";s:10:"sort_order";s:0:"";}i:5;a:3:{s:4:"name";s:0:"";s:3:"url";s:0:"";s:10:"sort_order";s:0:"";}i:6;a:3:{s:4:"name";s:0:"";s:3:"url";s:0:"";s:10:"sort_order";s:0:"";}}}i:2;a:2:{s:4:"name";s:0:"";s:8:"htmldata";s:0:"";}}s:6:"cap1_1";a:3:{i:1;a:6:{s:8:"position";s:2:"cb";s:10:"sort_order";s:1:"1";s:5:"title";s:31:"GENERATE UNLIMITED COLOR THEMES";s:8:"linktext";s:7:"Buy Now";s:4:"link";s:83:"http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS";s:4:"data";s:104:"R.Gen theme module provides option to save module settings&lt;br&gt;\r\nto generate unlimited color themes";}i:2;a:6:{s:8:"position";s:2:"cb";s:10:"sort_order";s:1:"2";s:5:"title";s:23:"ADVANCED CODE GENERATOR";s:8:"linktext";s:7:"Buy Now";s:4:"link";s:83:"http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS";s:4:"data";s:208:"&lt;div style=&quot;font-size: 22px;&quot;&gt;\r\nAbility to quick and easily generate codes for&lt;br&gt;\r\nmasonry grids, slide show, banner grid and info boxes without any manual writing of code\r\n&lt;/div&gt;";}i:3;a:6:{s:8:"position";s:2:"cb";s:10:"sort_order";s:1:"3";s:5:"title";s:22:"ADVANCED CUSTOM MODULE";s:8:"linktext";s:7:"Buy Now";s:4:"link";s:83:"http://themeforest.net/item/rgen-opencart-modern-store-design/2699592?ref=R_GENESIS";s:4:"data";s:109:"R. Gen Custom Module gives freedom&lt;br&gt;\r\nto display any Products, Brands or Category any ware on a theme";}}s:13:"ftAbout_title";s:0:"";s:7:"ftAbout";s:0:"";}}', 1),
+(5872, 0, 'rgen_theme', 'RGen_menu_item5_url', '', 0),
+(5871, 0, 'rgen_theme', 'RGen_menu_item5', '', 0),
+(5870, 0, 'rgen_theme', 'RGen_menu_item4_url', '', 0),
+(5863, 0, 'rgen_theme', 'RGen_menu_item1', '', 0),
+(5864, 0, 'rgen_theme', 'RGen_menu_item1_url', '', 0),
+(5865, 0, 'rgen_theme', 'RGen_menu_item2', '', 0),
+(5866, 0, 'rgen_theme', 'RGen_menu_item2_url', '', 0),
+(5867, 0, 'rgen_theme', 'RGen_menu_item3', '', 0),
+(5868, 0, 'rgen_theme', 'RGen_menu_item3_url', '', 0),
+(5857, 0, 'rgen_theme', 'RGen_subMenu1_item_url8', '', 0),
+(5856, 0, 'rgen_theme', 'RGen_subMenu1_item8', '', 0),
+(5855, 0, 'rgen_theme', 'RGen_subMenu1_item_url7', '', 0),
+(5854, 0, 'rgen_theme', 'RGen_subMenu1_item7', '', 0),
+(5853, 0, 'rgen_theme', 'RGen_subMenu1_item_url6', '', 0),
+(5852, 0, 'rgen_theme', 'RGen_subMenu1_item6', '', 0),
+(5849, 0, 'rgen_theme', 'RGen_subMenu1_item_url4', '', 0),
+(5851, 0, 'rgen_theme', 'RGen_subMenu1_item_url5', '', 0),
+(5850, 0, 'rgen_theme', 'RGen_subMenu1_item5', '', 0),
+(5848, 0, 'rgen_theme', 'RGen_subMenu1_item4', '', 0),
+(5847, 0, 'rgen_theme', 'RGen_subMenu1_item_url3', '', 0),
+(5846, 0, 'rgen_theme', 'RGen_subMenu1_item3', '', 0),
+(5845, 0, 'rgen_theme', 'RGen_subMenu1_item_url2', '', 0),
+(5844, 0, 'rgen_theme', 'RGen_subMenu1_item2', '', 0),
+(5843, 0, 'rgen_theme', 'RGen_subMenu1_item_url1', '', 0),
+(5842, 0, 'rgen_theme', 'RGen_subMenu1_item1', '', 0),
+(5841, 0, 'rgen_theme', 'RGen_menu1_item_url', '', 0),
+(5840, 0, 'rgen_theme', 'RGen_menu1_item', '', 0),
+(5839, 0, 'rgen_theme', 'RGen_menuhtml_status', '0', 0),
+(5838, 0, 'rgen_theme', 'RGen_menu_item_status', '0', 0),
+(5837, 0, 'rgen_theme', 'RGen_customMenu_status', '0', 0),
+(5836, 0, 'rgen_theme', 'RGen_htmlMenuDisplay', '0', 0),
+(5828, 0, 'rgen_theme', 'RGen_capLink_font_size', '--', 0),
+(5829, 0, 'rgen_theme', 'RGen_capLink_font_transform', '--', 0),
+(5830, 0, 'rgen_theme', 'RGenData_mod', 'a:1:{s:14:"RGen_menu_sort";a:6:{i:0;a:1:{s:10:"sort_order";s:1:"0";}i:1;a:1:{s:10:"sort_order";s:1:"1";}i:2;a:1:{s:10:"sort_order";s:1:"2";}i:3;a:1:{s:10:"sort_order";s:1:"3";}i:4;a:1:{s:10:"sort_order";s:1:"4";}i:5;a:1:{s:10:"sort_order";s:1:"5";}}}', 1),
+(5835, 0, 'rgen_theme', 'RGen_multiLevelMenu_status', '0', 0),
+(5831, 0, 'rgen_theme', 'RGen_MenuItemSpace', '', 0),
+(5832, 0, 'rgen_theme', 'RGen_occat_status', '1', 0),
+(5833, 0, 'rgen_theme', 'RGen_informationMenu_status', '0', 0),
+(5834, 0, 'rgen_theme', 'RGen_myac_status', '0', 0),
+(5827, 0, 'rgen_theme', 'RGen_capLink_font_weight', '--', 0),
+(5826, 0, 'rgen_theme', 'RGen_capLink_font', '--', 0),
+(5825, 0, 'rgen_theme', 'RGen_capContent_font_transform', '--', 0),
+(5824, 0, 'rgen_theme', 'RGen_capContent_font_size', '--', 0),
+(5823, 0, 'rgen_theme', 'RGen_capContent_font_weight', '--', 0),
+(5822, 0, 'rgen_theme', 'RGen_capContent_font', '--', 0),
+(5821, 0, 'rgen_theme', 'RGen_capHeading_font_transform', '--', 0),
+(5820, 0, 'rgen_theme', 'RGen_capHeading_font_size', '--', 0),
+(5819, 0, 'rgen_theme', 'RGen_capHeading_font_weight', '--', 0),
+(5818, 0, 'rgen_theme', 'RGen_capHeading_font', '--', 0),
+(5817, 0, 'rgen_theme', 'RGen_other_font_transform', '--', 0),
+(5816, 0, 'rgen_theme', 'RGen_other_font_weight', '--', 0),
+(5815, 0, 'rgen_theme', 'RGen_other_font', '--', 0),
+(5814, 0, 'rgen_theme', 'RGen_Button_font_transform', '--', 0),
+(5813, 0, 'rgen_theme', 'RGen_Button_font_weight', '--', 0),
+(5812, 0, 'rgen_theme', 'RGen_Button_font', '--', 0),
+(5811, 0, 'rgen_theme', 'RGen_Price_font_weight', '--', 0),
+(5810, 0, 'rgen_theme', 'RGen_Price_font', '--', 0),
+(5809, 0, 'rgen_theme', 'RGen_Navigation_transform', '--', 0),
+(5808, 0, 'rgen_theme', 'RGen_Navigation_font_size', '--', 0),
+(5807, 0, 'rgen_theme', 'RGen_Navigation_font_weight', '--', 0),
+(5806, 0, 'rgen_theme', 'RGen_Navigation_font', '--', 0),
+(5805, 0, 'rgen_theme', 'RGen_otherHeading_transform', '--', 0),
+(5804, 0, 'rgen_theme', 'RGen_otherHeading_font_weight', '--', 0),
+(5803, 0, 'rgen_theme', 'RGen_otherHeading_font', '--', 0),
+(5802, 0, 'rgen_theme', 'RGen_PageTitle_transform', '--', 0),
+(5799, 0, 'rgen_theme', 'RGen_PageTitle_font', '--', 0),
+(5800, 0, 'rgen_theme', 'RGen_PageTitle_font_weight', '--', 0),
+(5801, 0, 'rgen_theme', 'RGen_PageTitle_font_size', '--', 0),
+(5798, 0, 'rgen_theme', 'RGen_Body_font_size', '--', 0),
+(5797, 0, 'rgen_theme', 'RGen_Body_font_weight', '--', 0),
+(5795, 0, 'rgen_theme', 'RGen_fontSettings_status', '0', 0),
+(5796, 0, 'rgen_theme', 'RGen_Body_font', '--', 0),
+(5792, 0, 'rgen_theme', 'RGen_productZoom', '2', 0),
+(5793, 0, 'rgen_theme', 'RGen_optimizemob', '1', 0),
+(5794, 0, 'rgen_theme', 'RGen_optimize', 'a:9:{s:3:"css";s:1:"0";s:2:"js";s:1:"0";s:16:"cache_customhtml";s:1:"0";s:9:"cache_pcb";s:1:"0";s:12:"cache_mgmenu";s:1:"0";s:10:"cache_revo";s:1:"0";s:13:"cache_banners";s:1:"0";s:13:"cache_gallery";s:1:"0";s:19:"cache_contentblocks";s:1:"0";}', 1),
+(5791, 0, 'rgen_theme', 'RGen_thumbOptions', '0', 0),
+(5790, 0, 'rgen_theme', 'RGen_reviewTab', '1', 0),
+(5789, 0, 'rgen_theme', 'RGen_productLayout', '0', 0),
+(5787, 0, 'rgen_theme', 'RGen_colprdView_latest', 'list', 0),
+(5788, 0, 'rgen_theme', 'RGen_modprdView', 'special-scroll,featured-scroll,best-scroll,latest-scroll', 0),
+(5786, 0, 'rgen_theme', 'RGen_colprdView_best', 'list', 0),
+(5782, 0, 'rgen_theme', 'RGen_modPrdBlock_best', 'prd1', 0),
+(5783, 0, 'rgen_theme', 'RGen_modPrdBlock_special', 'prd1', 0),
+(5785, 0, 'rgen_theme', 'RGen_colprdView_featured', 'list', 0),
+(5784, 0, 'rgen_theme', 'RGen_colprdView_special', 'list', 0),
+(5781, 0, 'rgen_theme', 'RGen_modPrdBlock_latest', 'prd1', 0),
+(5780, 0, 'rgen_theme', 'RGen_modPrdBlock_featured', 'prd1', 0),
+(5779, 0, 'rgen_theme', 'RGen_carouselArrow', 'bs', 0),
+(5778, 0, 'rgen_theme', 'RGen_catinfo_status', '0', 0),
+(5777, 0, 'rgen_theme', 'RGen_refineCate_View', 'grid', 0),
+(5776, 0, 'rgen_theme', 'RGen_refineCate_layout', 'btn', 0),
+(5775, 0, 'rgen_theme', 'RGen_prdBlock_view', 'prd2', 0),
+(5774, 0, 'rgen_theme', 'RGen_prdList_defaultView', 'list', 0),
+(5773, 0, 'rgen_theme', 'RGen_menuhome', 'ico', 0),
+(5772, 0, 'rgen_theme', 'RGen_menusticky', 'normal', 0),
+(5771, 0, 'rgen_theme', 'RGen_menulayout', 'bx', 0),
+(5770, 0, 'rgen_theme', 'RGen_logoBG_color', 'rgb(255,255,255)', 0),
+(5769, 0, 'rgen_theme', 'RGen_logoSpaceAround_LR', '30', 0),
+(5767, 0, 'rgen_theme', 'RGen_logoTop', '', 0),
+(5768, 0, 'rgen_theme', 'RGen_logoSpaceAround_TB', '', 0),
+(5766, 0, 'rgen_theme', 'RGen_logoLeft', '', 0),
+(5765, 0, 'rgen_theme', 'RGen_logoAlign', 'lg-l', 0),
+(5764, 0, 'rgen_theme', 'RGen_logoPosition_status', '0', 0),
+(5763, 0, 'rgen_theme', 'RGen_header_links', 'nr', 0),
+(5762, 0, 'rgen_theme', 'RGen_header_design', 'hd1', 0),
+(5761, 0, 'rgen_theme', 'RGenTagData', 'a:6:{s:4:"type";s:3:"txt";s:4:"text";a:1:{i:1;s:5:"Offer";}s:5:"image";s:0:"";s:5:"style";s:1:"5";s:2:"bg";s:0:"";s:8:"txtcolor";s:0:"";}', 1),
+(5760, 0, 'rgen_theme', 'RGen_imgType', 'squareimg', 0),
+(5759, 0, 'rgen_theme', 'RGen_Icons', 'vector', 0),
+(5758, 0, 'rgen_theme', 'RGen_layout', 'bx', 0),
+(5757, 0, 'rgen_theme', 'RGen_scrollTop_status', '1', 0),
+(5756, 0, 'rgen_theme', 'RGen_wide_screensize', '1200', 0),
+(5755, 0, 'rgen_theme', 'RGen_wide_layout', '1', 0),
+(5754, 0, 'rgen_theme', 'RGen_reaponsive_status', '1', 0),
+(5753, 0, 'rgen_theme', 'RGen_themeSettings', '', 0),
+(5752, 0, 'rgen_theme', 'RGen_selectedTheme', '', 0),
+(5651, 0, 'config', 'config_email', 'quangthi_90@yahoo.com.vn', 0),
+(5650, 0, 'config', 'config_address', 'Address 1', 0),
+(5649, 0, 'config', 'config_owner', 'Your Name', 0),
+(5648, 0, 'config', 'config_name', 'Your Store', 0);
 
 -- --------------------------------------------------------
 
@@ -3152,7 +4002,7 @@ CREATE TABLE IF NOT EXISTS `user_group` (
 --
 
 INSERT INTO `user_group` (`user_group_id`, `name`, `permission`) VALUES
-(1, 'Top Administrator', 'a:2:{s:6:"access";a:146:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:16:"catalog/download";i:4;s:14:"catalog/filter";i:5;s:19:"catalog/information";i:6;s:20:"catalog/manufacturer";i:7;s:14:"catalog/option";i:8;s:15:"catalog/product";i:9;s:15:"catalog/profile";i:10;s:14:"catalog/review";i:11;s:18:"common/filemanager";i:12;s:13:"design/banner";i:13;s:19:"design/custom_field";i:14;s:13:"design/layout";i:15;s:14:"extension/feed";i:16;s:17:"extension/manager";i:17;s:16:"extension/module";i:18;s:17:"extension/openbay";i:19;s:17:"extension/payment";i:20;s:18:"extension/shipping";i:21;s:15:"extension/total";i:22;s:16:"feed/google_base";i:23;s:19:"feed/google_sitemap";i:24;s:20:"localisation/country";i:25;s:21:"localisation/currency";i:26;s:21:"localisation/geo_zone";i:27;s:21:"localisation/language";i:28;s:25:"localisation/length_class";i:29;s:25:"localisation/order_status";i:30;s:26:"localisation/return_action";i:31;s:26:"localisation/return_reason";i:32;s:26:"localisation/return_status";i:33;s:25:"localisation/stock_status";i:34;s:22:"localisation/tax_class";i:35;s:21:"localisation/tax_rate";i:36;s:25:"localisation/weight_class";i:37;s:17:"localisation/zone";i:38;s:14:"module/account";i:39;s:16:"module/affiliate";i:40;s:29:"module/amazon_checkout_layout";i:41;s:13:"module/banner";i:42;s:17:"module/bestseller";i:43;s:15:"module/carousel";i:44;s:15:"module/category";i:45;s:18:"module/ebaydisplay";i:46;s:15:"module/featured";i:47;s:13:"module/filter";i:48;s:18:"module/google_talk";i:49;s:18:"module/information";i:50;s:13:"module/latest";i:51;s:17:"module/openbaypro";i:52;s:16:"module/pp_layout";i:53;s:16:"module/slideshow";i:54;s:14:"module/special";i:55;s:12:"module/store";i:56;s:14:"module/welcome";i:57;s:14:"openbay/amazon";i:58;s:22:"openbay/amazon_listing";i:59;s:22:"openbay/amazon_product";i:60;s:16:"openbay/amazonus";i:61;s:24:"openbay/amazonus_listing";i:62;s:24:"openbay/amazonus_product";i:63;s:20:"openbay/ebay_profile";i:64;s:21:"openbay/ebay_template";i:65;s:15:"openbay/openbay";i:66;s:23:"payment/amazon_checkout";i:67;s:24:"payment/authorizenet_aim";i:68;s:21:"payment/bank_transfer";i:69;s:14:"payment/cheque";i:70;s:11:"payment/cod";i:71;s:21:"payment/free_checkout";i:72;s:22:"payment/klarna_account";i:73;s:22:"payment/klarna_invoice";i:74;s:14:"payment/liqpay";i:75;s:20:"payment/moneybookers";i:76;s:14:"payment/nochex";i:77;s:15:"payment/paymate";i:78;s:16:"payment/paypoint";i:79;s:13:"payment/payza";i:80;s:26:"payment/perpetual_payments";i:81;s:18:"payment/pp_express";i:82;s:25:"payment/pp_payflow_iframe";i:83;s:14:"payment/pp_pro";i:84;s:21:"payment/pp_pro_iframe";i:85;s:17:"payment/pp_pro_pf";i:86;s:17:"payment/pp_pro_uk";i:87;s:19:"payment/pp_standard";i:88;s:15:"payment/sagepay";i:89;s:22:"payment/sagepay_direct";i:90;s:18:"payment/sagepay_us";i:91;s:19:"payment/twocheckout";i:92;s:28:"payment/web_payment_software";i:93;s:16:"payment/worldpay";i:94;s:27:"report/affiliate_commission";i:95;s:22:"report/customer_credit";i:96;s:22:"report/customer_online";i:97;s:21:"report/customer_order";i:98;s:22:"report/customer_reward";i:99;s:24:"report/product_purchased";i:100;s:21:"report/product_viewed";i:101;s:18:"report/sale_coupon";i:102;s:17:"report/sale_order";i:103;s:18:"report/sale_return";i:104;s:20:"report/sale_shipping";i:105;s:15:"report/sale_tax";i:106;s:14:"sale/affiliate";i:107;s:12:"sale/contact";i:108;s:11:"sale/coupon";i:109;s:13:"sale/customer";i:110;s:20:"sale/customer_ban_ip";i:111;s:19:"sale/customer_group";i:112;s:10:"sale/order";i:113;s:14:"sale/recurring";i:114;s:11:"sale/return";i:115;s:12:"sale/voucher";i:116;s:18:"sale/voucher_theme";i:117;s:15:"setting/setting";i:118;s:13:"setting/store";i:119;s:16:"shipping/auspost";i:120;s:17:"shipping/citylink";i:121;s:14:"shipping/fedex";i:122;s:13:"shipping/flat";i:123;s:13:"shipping/free";i:124;s:13:"shipping/item";i:125;s:23:"shipping/parcelforce_48";i:126;s:15:"shipping/pickup";i:127;s:19:"shipping/royal_mail";i:128;s:12:"shipping/ups";i:129;s:13:"shipping/usps";i:130;s:15:"shipping/weight";i:131;s:11:"tool/backup";i:132;s:14:"tool/error_log";i:133;s:12:"total/coupon";i:134;s:12:"total/credit";i:135;s:14:"total/handling";i:136;s:16:"total/klarna_fee";i:137;s:19:"total/low_order_fee";i:138;s:12:"total/reward";i:139;s:14:"total/shipping";i:140;s:15:"total/sub_total";i:141;s:9:"total/tax";i:142;s:11:"total/total";i:143;s:13:"total/voucher";i:144;s:9:"user/user";i:145;s:20:"user/user_permission";}s:6:"modify";a:146:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:16:"catalog/download";i:4;s:14:"catalog/filter";i:5;s:19:"catalog/information";i:6;s:20:"catalog/manufacturer";i:7;s:14:"catalog/option";i:8;s:15:"catalog/product";i:9;s:15:"catalog/profile";i:10;s:14:"catalog/review";i:11;s:18:"common/filemanager";i:12;s:13:"design/banner";i:13;s:19:"design/custom_field";i:14;s:13:"design/layout";i:15;s:14:"extension/feed";i:16;s:17:"extension/manager";i:17;s:16:"extension/module";i:18;s:17:"extension/openbay";i:19;s:17:"extension/payment";i:20;s:18:"extension/shipping";i:21;s:15:"extension/total";i:22;s:16:"feed/google_base";i:23;s:19:"feed/google_sitemap";i:24;s:20:"localisation/country";i:25;s:21:"localisation/currency";i:26;s:21:"localisation/geo_zone";i:27;s:21:"localisation/language";i:28;s:25:"localisation/length_class";i:29;s:25:"localisation/order_status";i:30;s:26:"localisation/return_action";i:31;s:26:"localisation/return_reason";i:32;s:26:"localisation/return_status";i:33;s:25:"localisation/stock_status";i:34;s:22:"localisation/tax_class";i:35;s:21:"localisation/tax_rate";i:36;s:25:"localisation/weight_class";i:37;s:17:"localisation/zone";i:38;s:14:"module/account";i:39;s:16:"module/affiliate";i:40;s:29:"module/amazon_checkout_layout";i:41;s:13:"module/banner";i:42;s:17:"module/bestseller";i:43;s:15:"module/carousel";i:44;s:15:"module/category";i:45;s:18:"module/ebaydisplay";i:46;s:15:"module/featured";i:47;s:13:"module/filter";i:48;s:18:"module/google_talk";i:49;s:18:"module/information";i:50;s:13:"module/latest";i:51;s:17:"module/openbaypro";i:52;s:16:"module/pp_layout";i:53;s:16:"module/slideshow";i:54;s:14:"module/special";i:55;s:12:"module/store";i:56;s:14:"module/welcome";i:57;s:14:"openbay/amazon";i:58;s:22:"openbay/amazon_listing";i:59;s:22:"openbay/amazon_product";i:60;s:16:"openbay/amazonus";i:61;s:24:"openbay/amazonus_listing";i:62;s:24:"openbay/amazonus_product";i:63;s:20:"openbay/ebay_profile";i:64;s:21:"openbay/ebay_template";i:65;s:15:"openbay/openbay";i:66;s:23:"payment/amazon_checkout";i:67;s:24:"payment/authorizenet_aim";i:68;s:21:"payment/bank_transfer";i:69;s:14:"payment/cheque";i:70;s:11:"payment/cod";i:71;s:21:"payment/free_checkout";i:72;s:22:"payment/klarna_account";i:73;s:22:"payment/klarna_invoice";i:74;s:14:"payment/liqpay";i:75;s:20:"payment/moneybookers";i:76;s:14:"payment/nochex";i:77;s:15:"payment/paymate";i:78;s:16:"payment/paypoint";i:79;s:13:"payment/payza";i:80;s:26:"payment/perpetual_payments";i:81;s:18:"payment/pp_express";i:82;s:25:"payment/pp_payflow_iframe";i:83;s:14:"payment/pp_pro";i:84;s:21:"payment/pp_pro_iframe";i:85;s:17:"payment/pp_pro_pf";i:86;s:17:"payment/pp_pro_uk";i:87;s:19:"payment/pp_standard";i:88;s:15:"payment/sagepay";i:89;s:22:"payment/sagepay_direct";i:90;s:18:"payment/sagepay_us";i:91;s:19:"payment/twocheckout";i:92;s:28:"payment/web_payment_software";i:93;s:16:"payment/worldpay";i:94;s:27:"report/affiliate_commission";i:95;s:22:"report/customer_credit";i:96;s:22:"report/customer_online";i:97;s:21:"report/customer_order";i:98;s:22:"report/customer_reward";i:99;s:24:"report/product_purchased";i:100;s:21:"report/product_viewed";i:101;s:18:"report/sale_coupon";i:102;s:17:"report/sale_order";i:103;s:18:"report/sale_return";i:104;s:20:"report/sale_shipping";i:105;s:15:"report/sale_tax";i:106;s:14:"sale/affiliate";i:107;s:12:"sale/contact";i:108;s:11:"sale/coupon";i:109;s:13:"sale/customer";i:110;s:20:"sale/customer_ban_ip";i:111;s:19:"sale/customer_group";i:112;s:10:"sale/order";i:113;s:14:"sale/recurring";i:114;s:11:"sale/return";i:115;s:12:"sale/voucher";i:116;s:18:"sale/voucher_theme";i:117;s:15:"setting/setting";i:118;s:13:"setting/store";i:119;s:16:"shipping/auspost";i:120;s:17:"shipping/citylink";i:121;s:14:"shipping/fedex";i:122;s:13:"shipping/flat";i:123;s:13:"shipping/free";i:124;s:13:"shipping/item";i:125;s:23:"shipping/parcelforce_48";i:126;s:15:"shipping/pickup";i:127;s:19:"shipping/royal_mail";i:128;s:12:"shipping/ups";i:129;s:13:"shipping/usps";i:130;s:15:"shipping/weight";i:131;s:11:"tool/backup";i:132;s:14:"tool/error_log";i:133;s:12:"total/coupon";i:134;s:12:"total/credit";i:135;s:14:"total/handling";i:136;s:16:"total/klarna_fee";i:137;s:19:"total/low_order_fee";i:138;s:12:"total/reward";i:139;s:14:"total/shipping";i:140;s:15:"total/sub_total";i:141;s:9:"total/tax";i:142;s:11:"total/total";i:143;s:13:"total/voucher";i:144;s:9:"user/user";i:145;s:20:"user/user_permission";}}'),
+(1, 'Top Administrator', 'a:2:{s:6:"access";a:154:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:16:"catalog/download";i:4;s:14:"catalog/filter";i:5;s:19:"catalog/information";i:6;s:20:"catalog/manufacturer";i:7;s:14:"catalog/option";i:8;s:15:"catalog/product";i:9;s:15:"catalog/profile";i:10;s:14:"catalog/review";i:11;s:18:"common/filemanager";i:12;s:13:"design/banner";i:13;s:19:"design/custom_field";i:14;s:13:"design/layout";i:15;s:14:"extension/feed";i:16;s:17:"extension/manager";i:17;s:16:"extension/module";i:18;s:17:"extension/openbay";i:19;s:17:"extension/payment";i:20;s:18:"extension/shipping";i:21;s:15:"extension/total";i:22;s:16:"feed/google_base";i:23;s:19:"feed/google_sitemap";i:24;s:20:"localisation/country";i:25;s:21:"localisation/currency";i:26;s:21:"localisation/geo_zone";i:27;s:21:"localisation/language";i:28;s:25:"localisation/length_class";i:29;s:25:"localisation/order_status";i:30;s:26:"localisation/return_action";i:31;s:26:"localisation/return_reason";i:32;s:26:"localisation/return_status";i:33;s:25:"localisation/stock_status";i:34;s:22:"localisation/tax_class";i:35;s:21:"localisation/tax_rate";i:36;s:25:"localisation/weight_class";i:37;s:17:"localisation/zone";i:38;s:14:"module/account";i:39;s:16:"module/affiliate";i:40;s:29:"module/amazon_checkout_layout";i:41;s:13:"module/banner";i:42;s:17:"module/bestseller";i:43;s:15:"module/carousel";i:44;s:15:"module/category";i:45;s:18:"module/ebaydisplay";i:46;s:15:"module/featured";i:47;s:13:"module/filter";i:48;s:18:"module/google_talk";i:49;s:18:"module/information";i:50;s:13:"module/latest";i:51;s:17:"module/openbaypro";i:52;s:16:"module/pp_layout";i:53;s:16:"module/slideshow";i:54;s:14:"module/special";i:55;s:12:"module/store";i:56;s:14:"module/welcome";i:57;s:14:"openbay/amazon";i:58;s:22:"openbay/amazon_listing";i:59;s:22:"openbay/amazon_product";i:60;s:16:"openbay/amazonus";i:61;s:24:"openbay/amazonus_listing";i:62;s:24:"openbay/amazonus_product";i:63;s:20:"openbay/ebay_profile";i:64;s:21:"openbay/ebay_template";i:65;s:15:"openbay/openbay";i:66;s:23:"payment/amazon_checkout";i:67;s:24:"payment/authorizenet_aim";i:68;s:21:"payment/bank_transfer";i:69;s:14:"payment/cheque";i:70;s:11:"payment/cod";i:71;s:21:"payment/free_checkout";i:72;s:22:"payment/klarna_account";i:73;s:22:"payment/klarna_invoice";i:74;s:14:"payment/liqpay";i:75;s:20:"payment/moneybookers";i:76;s:14:"payment/nochex";i:77;s:15:"payment/paymate";i:78;s:16:"payment/paypoint";i:79;s:13:"payment/payza";i:80;s:26:"payment/perpetual_payments";i:81;s:18:"payment/pp_express";i:82;s:25:"payment/pp_payflow_iframe";i:83;s:14:"payment/pp_pro";i:84;s:21:"payment/pp_pro_iframe";i:85;s:17:"payment/pp_pro_pf";i:86;s:17:"payment/pp_pro_uk";i:87;s:19:"payment/pp_standard";i:88;s:15:"payment/sagepay";i:89;s:22:"payment/sagepay_direct";i:90;s:18:"payment/sagepay_us";i:91;s:19:"payment/twocheckout";i:92;s:28:"payment/web_payment_software";i:93;s:16:"payment/worldpay";i:94;s:27:"report/affiliate_commission";i:95;s:22:"report/customer_credit";i:96;s:22:"report/customer_online";i:97;s:21:"report/customer_order";i:98;s:22:"report/customer_reward";i:99;s:24:"report/product_purchased";i:100;s:21:"report/product_viewed";i:101;s:18:"report/sale_coupon";i:102;s:17:"report/sale_order";i:103;s:18:"report/sale_return";i:104;s:20:"report/sale_shipping";i:105;s:15:"report/sale_tax";i:106;s:14:"sale/affiliate";i:107;s:12:"sale/contact";i:108;s:11:"sale/coupon";i:109;s:13:"sale/customer";i:110;s:20:"sale/customer_ban_ip";i:111;s:19:"sale/customer_group";i:112;s:10:"sale/order";i:113;s:14:"sale/recurring";i:114;s:11:"sale/return";i:115;s:12:"sale/voucher";i:116;s:18:"sale/voucher_theme";i:117;s:15:"setting/setting";i:118;s:13:"setting/store";i:119;s:16:"shipping/auspost";i:120;s:17:"shipping/citylink";i:121;s:14:"shipping/fedex";i:122;s:13:"shipping/flat";i:123;s:13:"shipping/free";i:124;s:13:"shipping/item";i:125;s:23:"shipping/parcelforce_48";i:126;s:15:"shipping/pickup";i:127;s:19:"shipping/royal_mail";i:128;s:12:"shipping/ups";i:129;s:13:"shipping/usps";i:130;s:15:"shipping/weight";i:131;s:11:"tool/backup";i:132;s:14:"tool/error_log";i:133;s:12:"total/coupon";i:134;s:12:"total/credit";i:135;s:14:"total/handling";i:136;s:16:"total/klarna_fee";i:137;s:19:"total/low_order_fee";i:138;s:12:"total/reward";i:139;s:14:"total/shipping";i:140;s:15:"total/sub_total";i:141;s:9:"total/tax";i:142;s:11:"total/total";i:143;s:13:"total/voucher";i:144;s:9:"user/user";i:145;s:20:"user/user_permission";i:146;s:19:"module/rgen_banners";i:147;s:25:"module/rgen_contentblocks";i:148;s:18:"module/rgen_custom";i:149;s:26:"module/rgen_customproducts";i:150;s:19:"module/rgen_gallery";i:151;s:20:"module/rgen_megamenu";i:152;s:22:"module/rgen_revoslider";i:153;s:17:"module/rgen_theme";}s:6:"modify";a:154:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:16:"catalog/download";i:4;s:14:"catalog/filter";i:5;s:19:"catalog/information";i:6;s:20:"catalog/manufacturer";i:7;s:14:"catalog/option";i:8;s:15:"catalog/product";i:9;s:15:"catalog/profile";i:10;s:14:"catalog/review";i:11;s:18:"common/filemanager";i:12;s:13:"design/banner";i:13;s:19:"design/custom_field";i:14;s:13:"design/layout";i:15;s:14:"extension/feed";i:16;s:17:"extension/manager";i:17;s:16:"extension/module";i:18;s:17:"extension/openbay";i:19;s:17:"extension/payment";i:20;s:18:"extension/shipping";i:21;s:15:"extension/total";i:22;s:16:"feed/google_base";i:23;s:19:"feed/google_sitemap";i:24;s:20:"localisation/country";i:25;s:21:"localisation/currency";i:26;s:21:"localisation/geo_zone";i:27;s:21:"localisation/language";i:28;s:25:"localisation/length_class";i:29;s:25:"localisation/order_status";i:30;s:26:"localisation/return_action";i:31;s:26:"localisation/return_reason";i:32;s:26:"localisation/return_status";i:33;s:25:"localisation/stock_status";i:34;s:22:"localisation/tax_class";i:35;s:21:"localisation/tax_rate";i:36;s:25:"localisation/weight_class";i:37;s:17:"localisation/zone";i:38;s:14:"module/account";i:39;s:16:"module/affiliate";i:40;s:29:"module/amazon_checkout_layout";i:41;s:13:"module/banner";i:42;s:17:"module/bestseller";i:43;s:15:"module/carousel";i:44;s:15:"module/category";i:45;s:18:"module/ebaydisplay";i:46;s:15:"module/featured";i:47;s:13:"module/filter";i:48;s:18:"module/google_talk";i:49;s:18:"module/information";i:50;s:13:"module/latest";i:51;s:17:"module/openbaypro";i:52;s:16:"module/pp_layout";i:53;s:16:"module/slideshow";i:54;s:14:"module/special";i:55;s:12:"module/store";i:56;s:14:"module/welcome";i:57;s:14:"openbay/amazon";i:58;s:22:"openbay/amazon_listing";i:59;s:22:"openbay/amazon_product";i:60;s:16:"openbay/amazonus";i:61;s:24:"openbay/amazonus_listing";i:62;s:24:"openbay/amazonus_product";i:63;s:20:"openbay/ebay_profile";i:64;s:21:"openbay/ebay_template";i:65;s:15:"openbay/openbay";i:66;s:23:"payment/amazon_checkout";i:67;s:24:"payment/authorizenet_aim";i:68;s:21:"payment/bank_transfer";i:69;s:14:"payment/cheque";i:70;s:11:"payment/cod";i:71;s:21:"payment/free_checkout";i:72;s:22:"payment/klarna_account";i:73;s:22:"payment/klarna_invoice";i:74;s:14:"payment/liqpay";i:75;s:20:"payment/moneybookers";i:76;s:14:"payment/nochex";i:77;s:15:"payment/paymate";i:78;s:16:"payment/paypoint";i:79;s:13:"payment/payza";i:80;s:26:"payment/perpetual_payments";i:81;s:18:"payment/pp_express";i:82;s:25:"payment/pp_payflow_iframe";i:83;s:14:"payment/pp_pro";i:84;s:21:"payment/pp_pro_iframe";i:85;s:17:"payment/pp_pro_pf";i:86;s:17:"payment/pp_pro_uk";i:87;s:19:"payment/pp_standard";i:88;s:15:"payment/sagepay";i:89;s:22:"payment/sagepay_direct";i:90;s:18:"payment/sagepay_us";i:91;s:19:"payment/twocheckout";i:92;s:28:"payment/web_payment_software";i:93;s:16:"payment/worldpay";i:94;s:27:"report/affiliate_commission";i:95;s:22:"report/customer_credit";i:96;s:22:"report/customer_online";i:97;s:21:"report/customer_order";i:98;s:22:"report/customer_reward";i:99;s:24:"report/product_purchased";i:100;s:21:"report/product_viewed";i:101;s:18:"report/sale_coupon";i:102;s:17:"report/sale_order";i:103;s:18:"report/sale_return";i:104;s:20:"report/sale_shipping";i:105;s:15:"report/sale_tax";i:106;s:14:"sale/affiliate";i:107;s:12:"sale/contact";i:108;s:11:"sale/coupon";i:109;s:13:"sale/customer";i:110;s:20:"sale/customer_ban_ip";i:111;s:19:"sale/customer_group";i:112;s:10:"sale/order";i:113;s:14:"sale/recurring";i:114;s:11:"sale/return";i:115;s:12:"sale/voucher";i:116;s:18:"sale/voucher_theme";i:117;s:15:"setting/setting";i:118;s:13:"setting/store";i:119;s:16:"shipping/auspost";i:120;s:17:"shipping/citylink";i:121;s:14:"shipping/fedex";i:122;s:13:"shipping/flat";i:123;s:13:"shipping/free";i:124;s:13:"shipping/item";i:125;s:23:"shipping/parcelforce_48";i:126;s:15:"shipping/pickup";i:127;s:19:"shipping/royal_mail";i:128;s:12:"shipping/ups";i:129;s:13:"shipping/usps";i:130;s:15:"shipping/weight";i:131;s:11:"tool/backup";i:132;s:14:"tool/error_log";i:133;s:12:"total/coupon";i:134;s:12:"total/credit";i:135;s:14:"total/handling";i:136;s:16:"total/klarna_fee";i:137;s:19:"total/low_order_fee";i:138;s:12:"total/reward";i:139;s:14:"total/shipping";i:140;s:15:"total/sub_total";i:141;s:9:"total/tax";i:142;s:11:"total/total";i:143;s:13:"total/voucher";i:144;s:9:"user/user";i:145;s:20:"user/user_permission";i:146;s:19:"module/rgen_banners";i:147;s:25:"module/rgen_contentblocks";i:148;s:18:"module/rgen_custom";i:149;s:26:"module/rgen_customproducts";i:150;s:19:"module/rgen_gallery";i:151;s:20:"module/rgen_megamenu";i:152;s:22:"module/rgen_revoslider";i:153;s:17:"module/rgen_theme";}}'),
 (10, 'Demonstration', '');
 
 -- --------------------------------------------------------
